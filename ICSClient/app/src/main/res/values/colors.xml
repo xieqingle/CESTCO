@@ -1,6 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#1863af</color>
+    <color name="colorPrimaryDark">#1863af</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="separator">#ffdcdcdc</color>
+    <!--字体颜色-->
+    <color name="text_normal">#464646</color>
+    <color name="text_hint">#9c9c9c</color>
+    <color name="text_manager_name">#484848</color>
+    <color name="text_light_gray">#5a5a5a</color>
+    <color name="color_5a">#5a5a5a</color>
+    <color name="color_e5">#e5e5e5</color>
+    <color name="btn_cancel_bg">#7c7c7c</color>
+    <color name="color_f7">#f7f7f7</color>
+    <color name="color_fd">#fdfdfd</color>
+    <color name="color_a4">#a4a4a4</color>
+    <color name="color_ef">#efefef</color>
+    <color name="color_8f">#8f8f8f</color>
+    <color name="text_blue">#0066ff</color>
+    <color name="btn_start_do">#2c72b8</color>
+    <color name="btn_start_do_click">#2162a4</color>
+    <color name="text_gray">#F4F4F4</color>
+    <color name="task_statue">#Ff4403</color>
+    <color name="btn_wait_bg">#feb913</color>
+    <color name="conut_backgroud">#f7f7f7</color>
+    <color name="text_red">#df3031</color>
+    <color name="text_confirm">#0B4987</color>
+    <color name="text_content">#767676</color>
+    <color name="btn_text_color">#df3031</color>
+    <color name="key_value_color">#717171</color>
+    <color name="light_gray">#c8c8c8</color>
+    <color name="dark_gray">#808080</color>
+    <color name="btn_bg_red">#ff4200</color>
+    <color name="btn_bg_green">#22ac38</color>
+    <color name="btn_bg_blue">#00a0e9</color>
+    <color name="black">#000000</color>
+    <color name="title_bg">#1863af</color>
+    <color name="line_bg_28">#eaeaea</color>
+    <color name="line_bg">#d0d0d0</color>
+
+    <color name="etkv_input">#6d6d6d</color>
+    <!--app主要颜色值-->
+    <!--点中字体颜色：#ff4403；没点中字体颜色：#484848；-->
+    <color name="label_normal_text_color">#484848</color>
+    <color name="label_focus_text_color">#ff4403</color>
+    <!--主色：#484848(黑色)  -->
+    <color name="primary_color">#484848</color>
+    <!--次主色：#5a5a5a(比主色浅一点)-->
+    <color name="second_color">#5a5a5a</color>
+    <!--提示色：#bfbfbf(最浅)-->
+    <color name="hint_color">#bfbfbf</color>
+    <!--浅色-->
+    <color name="light_color_6d">#6d6d6d</color>
+    <color name="light_color_76">#767676</color>
+    <color name="divider_gray">#d0d0d0</color>
+    <!--点缀色：#ff4403（橙色）-->
+    <color name="ornament_color">#ff4403</color>
+    <color name="btn_distribution">#ff7200</color>
+    <color name="login_separator">#ffd6dadd</color>
+    <color name="background_write">#ffffff</color>
+    <color name="nomal_text_color">#000</color>
+    <color name="blue">#ff1678b5</color>
+    <color name="white">#ffffff</color>
+    <color name="white_45">#72ffffff</color>
+    <color name="white_50">#7fffffff</color>
+    <color name="white_90">#09ffffff</color>
+    <color name="white_60">#99000000</color>
+    <color name="gray_d0">#D0D0D0</color>
+    <color name="gray_bf">#BFBFBF</color>
+    <color name="header_iv_bg">#c1ddf1</color>
+    <color name="header_name_bg">#444444</color>
+    <!--任务标注-->
+    <color name="task_repair">#22ac38</color>
+    <color name="btn_finish_bg">#17b638</color>
+    <color name="task_inspect">#0886f2</color>
+    <color name="btn_sum_bg">#3082d6</color>
+    <color name="task_maintenance">#ffba00</color>
+    <color name="task_over_date">#7D7D7D</color>
+    <color name="transparent">#000000</color>
+    <color name="title">#333333</color>
+    <color name="darker_gray">#aaaaaa</color>
+    <color name="version_tv_color">#2a2a2a</color>
+    <color name="setting_iv_bg">#f0eff5</color>
+    <!--计划-->
+    <color name="is_tasked_bg">#f9f9f9</color>
+    <color name="is_tasked_tv_color">#a3a3a3</color>
+    <!--个人资料-->
+    <color name="siv_tv_color">#8f8f8f</color>
+    <color name="siv_hint_tv_color">#d4d4d4</color>
+    <!--故障退回editText-->
+    <color name="edit_text">#b7b7b7</color>
+    <color name="text_f4">#f4f4f4</color>
+    <color name="color_bf">#bfbfbf</color>
+    <color name="color_ea">#eaeaea</color>
+    <color name="color_text_urgent">#e91b00</color>
 </resources>

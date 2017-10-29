@@ -8,31 +8,76 @@
     android:orientation="vertical"
     tools:context="com.rockq.icsclient.MainActivity">
 
-  <EditText
-      android:id="@+id/et_port"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:hint="请输入端口号"/>
-    <Button
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/et_port"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="createServer"/>
+        android:hint="请输入端口号"
+        android:visibility="gone"/>
 
     <EditText
         android:id="@+id/et_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="请输入消息"/>
-    <Button
-        android:layout_width="wrap_content"
+        android:hint="输入消息"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="sendMessage"
-        android:text="发送"/>
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="createPort"
+            android:text="发送地址"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="stopSendIp"
+            android:text="停止发送"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="sendMessage"
+            android:text="发送消息"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="receiveMessage"
+            android:text="开始接受消息"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="stopReceive"
+            android:text="停止接受消息"/>
+
+    </LinearLayout>
+
+
     <TextView
         android:id="@+id/tv_message"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="消息信息为:"/>
+        android:padding="10dp"
+        tools:text="收到消息:"
+        android:textColor="#484848"
+        android:textSize="15sp"/>
 
 </LinearLayout>

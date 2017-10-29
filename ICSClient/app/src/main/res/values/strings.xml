@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">ICSClient</string>
+    <string name="refresh">刷新</string>
+    <string name="device_basic_info">基本信息></string>
+    <string name="add_device">新增设备></string>
+    <string name="device_number">编码</string>
+    <string name="device_number_two">编码:</string>
+    <string name="device_name">设备名称</string>
+    <string name="name">名称</string>
+    <string name="address">地址</string>
+    <string name="value">值</string>
+    <string name="please_input_password">请输入密码</string>
+    <string name="device_number_hint">请选择编码</string>
+    <string name="device_name_hint">请输入设备名称</string>
+    <string name="save">保存</string>
+    <string name="channel_code">通道编码:</string>
+    <string name="channel_name">通道名称:</string>
+    <string name="type_code">类型编码:</string>
+    <string name="type_name">类型名称</string>
+    <string name="service">服务器</string>
+    <string name="modify_password">修改密码</string>
+    <string name="restart">重启</string>
+    <string name="serial_number">序列号</string>
+    <string name="hardware_number">硬件序列号</string>
+    <string name="software_number">软件序列号</string>
+    <string name="restore_setting">恢复出厂设置</string>
+    <string name="firmware_update">固件更新</string>
 </resources>
