@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="XToolBar">
+        <attr name="xToolBarShowSeparator" format="boolean"/>
+        <attr name="xToolBarSeparatorColor" format="color"/>
+        <attr name="xToolBarSeparatorHeight" format="dimension"/>
+        <attr name="xToolBarBgColor" format="color"/>
+        <attr name="xToolBarLeftViewBackId" format="reference"/>
+        <attr name="xToolBarHeight" format="dimension"/>
+    </declare-styleable>
+</resources>
