@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="XToolBar">
+        <attr name="xToolBarHeight" format="dimension"/>
+        <attr name="xToolBarBgColor" format="color"/>
         <attr name="xToolBarShowSeparator" format="boolean"/>
         <attr name="xToolBarSeparatorColor" format="color"/>
         <attr name="xToolBarSeparatorHeight" format="dimension"/>
-        <attr name="xToolBarBgColor" format="color"/>
-        <attr name="xToolBarLeftViewBackId" format="reference"/>
-        <attr name="xToolBarHeight" format="dimension"/>
+        <attr name="xToolBarLeftViewRes" format="reference"/>
+        <attr name="xToolBarHorizontalPadding" format="dimension"/>
+        <attr name="xToolBarImageBtnWidth" format="dimension"/>
+        <attr name="xToolBarImageBtnHeight" format="dimension"/>
+        <attr name="xToolBarTitleHorizontalMargin" format="dimension"/>
+        <attr name="xToolBarTitleTextColor" format="color"/>
+        <attr name="xToolBarTitleTextSize" format="dimension"/>
+        <attr name="xToolBarSubTitleTextColor" format="color"/>
+        <attr name="xToolBarSubTitleTextSize" format="dimension"/>
     </declare-styleable>
 </resources>
