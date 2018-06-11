@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">UserCenter</string>
+    <string name="input_phonenumber">请输入手机号码</string>
+    <string name="username">用户名</string>
+    <string name="password">请输入密码</string>
+    <string name="login">登\t\t\t录</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="login_activity_forget_password">忘记密码</string>
+    <string name="login_activity_sign_in">立即注册</string>
+</resources>
