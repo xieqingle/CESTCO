@@ -10,7 +10,7 @@
         <attr name="separatorColor" format="color"/>
         <attr name="separatorHeight" format="dimension"/>
         <attr name="backgroundColor" format="color"/>
-        <attr name="leftDrawableId" format="reference"/>
+        <attr name="leftDrawableRes" format="reference"/>
         <attr name="titleTextSize" format="dimension"/>
         <attr name="qmui_topbar_title_text_size_with_subtitle" format="dimension"/>
         <attr name="subTitleTextSize" format="dimension"/>

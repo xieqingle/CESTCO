@@ -17,6 +17,7 @@ import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
 import com.cesecsh.baselib.R
+import com.cesecsh.baselib.utils.DensityUtils
 import com.cesecsh.baselib.utils.ResourceUtils
 import com.cesecsh.baselib.utils.StringUtils
 import com.cesecsh.baselib.widget.viewHelper.DrawableHelper
@@ -29,7 +30,7 @@ import java.util.ArrayList
  *
  * msg：标题栏
  */
-open class TitleBar /*constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int = 0) */ : RelativeLayout {
+open class TitleBar(context: Context?, attrs: AttributeSet?, defStyleAttr: Int = 0) : RelativeLayout(context, attrs, defStyleAttr) {
 
     private val DEFAULT_VIEW_ID = -1
     private var mLeftLastViewId: Int = 0 // 左侧最右 view 的 id
@@ -66,11 +67,8 @@ open class TitleBar /*constructor(context: Context, attrs: AttributeSet?, defSty
     private var mTopbarHeight = -1
     private var mTitleContainerRect: Rect? = null
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
-        initVar()
-        init(context, attrs, defStyleAttr)
-    }
-
+    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
+    constructor(context: Context) : this(context, null, 0)
 
 //    // ========================= title 相关的方法
 //
@@ -100,7 +98,7 @@ open class TitleBar /*constructor(context: Context, attrs: AttributeSet?, defSty
         mTopBarSeparatorColor = array.getColor(R.styleable.TitleBar_separatorColor,
                 ContextCompat.getColor(context, R.color.sepatarorColor))
         mTopBarSeparatorHeight = array.getDimensionPixelSize(R.styleable.TitleBar_separatorHeight, 1)
-        mTopBarBgColor = array.getColor(R.styleable.TitleBar_backgroundColor, Color.WHITE)
+        mTopBarBgColor = array.getColor(R.styleable.TitleBar_backgroundColor, ResourceUtils.getColor(R.color.colorPrimary))
         getCommonFieldFormTypedArray(context, array)
         val hasSeparator = array.getBoolean(R.styleable.TitleBar_needSeparator, true)
         array.recycle()
@@ -108,19 +106,19 @@ open class TitleBar /*constructor(context: Context, attrs: AttributeSet?, defSty
         setBackgroundDividerEnabled(hasSeparator)
     }
 
-    internal fun getCommonFieldFormTypedArray(context: Context, array: TypedArray) {
-        mLeftBackDrawableRes = array.getResourceId(R.styleable.TitleBar_leftDrawableId, R.id.leftViewId)
+    private fun getCommonFieldFormTypedArray(context: Context, array: TypedArray) {
+        mLeftBackDrawableRes = array.getResourceId(R.styleable.TitleBar_leftDrawableRes, R.mipmap.back)
         mTitleGravity = array.getInt(R.styleable.TitleBar_titleGravity, Gravity.CENTER)
-        mTitleTextSize = array.getDimensionPixelSize(R.styleable.TitleBar_titleTextSize, ResourceUtils.getInteger(R.integer.titleTextSize))
+        mTitleTextSize = array.getDimensionPixelSize(R.styleable.TitleBar_titleTextSize, DensityUtils.dp2px(getContext(), ResourceUtils.getInteger(R.integer.titleTextSize).toFloat()))
         mTitleTextSizeWithSubTitle = array.getDimensionPixelSize(R.styleable.TitleBar_titleTextSize, ResourceUtils.getInteger(R.integer.subTitleTextSize))
-        mSubTitleTextSize = array.getDimensionPixelSize(R.styleable.TitleBar_subTitleTextSize, 11)
+        mSubTitleTextSize = array.getDimensionPixelSize(R.styleable.TitleBar_subTitleTextSize, ResourceUtils.getInteger(R.integer.subTitleTextSize))
         mTitleTextColor = array.getColor(R.styleable.TitleBar_titleColor, Color.WHITE)
         mSubTitleTextColor = array.getColor(R.styleable.TitleBar_subTitleColor, Color.WHITE)
         mTitleMarginHorWhenNoBtnAside = array.getDimensionPixelSize(R.styleable.TitleBar_titleHorizontalMargin, 0)
         mTitleContainerPaddingHor = array.getDimensionPixelSize(R.styleable.TitleBar_titleHorizontalPadding, 0)
-        mTopBarImageBtnWidth = array.getDimensionPixelSize(R.styleable.TitleBar_imageViewWidth, 48)
-        mTopBarImageBtnHeight = array.getDimensionPixelSize(R.styleable.TitleBar_imageViewHeight, 48)
-        mTopBarTextBtnPaddingHor = array.getDimensionPixelSize(R.styleable.TitleBar_textBtnHorizontalPadding, 12)
+        mTopBarImageBtnWidth = array.getDimensionPixelSize(R.styleable.TitleBar_imageViewWidth, DensityUtils.dp2px(getContext(), ResourceUtils.getInteger(R.integer.titleBarHeight).toFloat()))
+        mTopBarImageBtnHeight = array.getDimensionPixelSize(R.styleable.TitleBar_imageViewHeight, DensityUtils.dp2px(getContext(), ResourceUtils.getInteger(R.integer.titleBarHeight).toFloat()))
+        mTopBarTextBtnPaddingHor = array.getDimensionPixelSize(R.styleable.TitleBar_textBtnHorizontalPadding, 0)
         mTopBarTextBtnTextColor = array.getColorStateList(R.styleable.TitleBar_textBtnTextColorStateList)
         mTopBarTextBtnTextSize = array.getDimensionPixelSize(R.styleable.TitleBar_textBtnTextSize, ResourceUtils.getInteger(R.integer.subTitleTextSize))
 
@@ -437,6 +435,11 @@ open class TitleBar /*constructor(context: Context, attrs: AttributeSet?, defSty
     fun addRightImageButton(drawableResId: Int, viewId: Int): AlphaImageButton {
         val rightButton = generateTopBarImageButton(drawableResId)
         this.addRightView(rightButton, viewId, generateTopBarImageButtonLayoutParams())
+        rightButton.setPadding(
+                DensityUtils.dp2px(context, ResourceUtils.getInteger(R.integer.defaultTitleImgBtnPadding).toFloat()),
+                0,
+                DensityUtils.dp2px(context, ResourceUtils.getInteger(R.integer.defaultTitleImgBtnPadding).toFloat()),
+                0)
         return rightButton
     }
 
@@ -450,6 +453,11 @@ open class TitleBar /*constructor(context: Context, attrs: AttributeSet?, defSty
     fun addLeftImageButton(drawableResId: Int, viewId: Int): AlphaImageButton {
         val leftButton = generateTopBarImageButton(drawableResId)
         this.addLeftView(leftButton, viewId, generateTopBarImageButtonLayoutParams())
+        leftButton.setPadding(
+                DensityUtils.dp2px(context, ResourceUtils.getInteger(R.integer.defaultTitleImgBtnPadding).toFloat()),
+                0,
+                DensityUtils.dp2px(context, ResourceUtils.getInteger(R.integer.defaultTitleImgBtnPadding).toFloat()),
+                0)
         return leftButton
     }
 
@@ -595,7 +603,7 @@ open class TitleBar /*constructor(context: Context, attrs: AttributeSet?, defSty
 
     private fun getTopBarHeight(): Int {
         if (mTopbarHeight == -1) {
-            mTopbarHeight = ResourceUtils.getInteger(R.integer.titleBarHeight)
+            mTopbarHeight = DensityUtils.dp2px(context, ResourceUtils.getInteger(R.integer.titleBarHeight).toFloat())
         }
         return mTopbarHeight
     }
@@ -713,6 +721,13 @@ open class TitleBar /*constructor(context: Context, attrs: AttributeSet?, defSty
                 }
             }
             mTitleContainerView!!.layout(titleContainerViewLeft, titleContainerViewTop, titleContainerViewLeft + titleContainerViewWidth, titleContainerViewTop + titleContainerViewHeight)
+        }
+    }
+
+    init {
+        initVar()
+        if (context != null) {
+            init(context, attrs, defStyleAttr)
         }
     }
 
