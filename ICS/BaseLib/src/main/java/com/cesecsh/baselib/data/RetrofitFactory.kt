@@ -1,7 +1,10 @@
 package com.cesecsh.baselib.data
 
+import android.text.TextUtils
 import com.cesecsh.baselib.BuildConfig
 import com.cesecsh.baselib.common.BaseConstant
+import com.cesecsh.baselib.utils.NetworkUtils
+import com.cesecsh.baselib.utils.PhoneUtils
 import com.kotlin.base.utils.AppPrefsUtils
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -37,6 +40,8 @@ class RetrofitFactory private constructor() {
                     .newBuilder()
                     .addHeader("Content_Type", "application/json")
                     .addHeader("charset", "UTF-8")
+                    .addHeader("ip", TextUtils.isEmpty(NetworkUtils.getIp()).toString())
+                    .addHeader("clientKey", PhoneUtils.getPhoneType())
                     .addHeader("token", AppPrefsUtils.getString(BaseConstant.KEY_SP_TOKEN))
                     .build()
 

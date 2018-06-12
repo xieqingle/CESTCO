@@ -1,36 +1,81 @@
 package com.cesecsh.usercenter.ui.activity
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import com.cesecsh.baselib.ui.BaseActivity
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
+import android.view.View
+import com.cesecsh.baselib.ext.enable
 import com.cesecsh.baselib.ui.BaseMvpActivity
+import com.cesecsh.baselib.utils.RegularUtils
 import com.cesecsh.baselib.utils.ScreenFitUtils
 import com.cesecsh.usercenter.R
 import com.cesecsh.usercenter.presenter.LoginPresenter
 import com.cesecsh.usercenter.presenter.view.LoginView
+import kotlinx.android.synthetic.main.activity_login.*
+import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.toast
 
 /**
  * 作者：RockQ on 2018/6/11
  * 邮箱：qingle6616@sina.com
  */
-class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView {
+class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClickListener {
+
+
+    private var isShowPassword: Boolean = true
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.mBtnShowPassword -> {
+                if (isShowPassword) {
+                    mEtPassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
+                    mBtnShowPassword.setBackgroundResource(R.mipmap.password_show)
+                } else {
+                    mEtPassword.transformationMethod = PasswordTransformationMethod.getInstance()
+                    mBtnShowPassword.setBackgroundResource(R.mipmap.password_hide)
+                }
+                isShowPassword = !isShowPassword
+            }
+            R.id.mBtnLogin -> {
+                if (!RegularUtils.isMobileExact(mEtPhone.text.toString())) {
+                    toast(getString(R.string.please_input_right_phone))
+                    return
+                }
+                mPresenter.login(mEtPhone.text.toString(), mEtPassword.text.toString(), "222222")
+            }
+            R.id.mBtnSignIn -> {
+                startActivity<RegisterActivity>()
+            }
+            R.id.tvForgetPassword -> {
+                startActivity<ForgetPasswordActivity>()
+            }
+        }
+    }
 
 
     override fun showLoginResult(str: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        toast(str)
     }
 
     override fun initPresenter() {
         mPresenter = LoginPresenter()
-    }
-
-    override fun initView() {
-        mView = this
+        mPresenter.mView = this
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         ScreenFitUtils.auto(this)
+        mBtnLogin.enable(mEtPhone, { isBtnEnable() })
+        mBtnLogin.enable(mEtPassword, { isBtnEnable() })
+        mBtnShowPassword.setOnClickListener(this)
+        mBtnLogin.setOnClickListener(this)
+        mBtnSignIn.setOnClickListener(this)
+        tvForgetPassword.setOnClickListener(this)
+    }
+
+    private fun isBtnEnable(): Boolean {
+        return mEtPassword.text.isNullOrEmpty().not() && mEtPhone.text.isNullOrEmpty().not()
+
     }
 }

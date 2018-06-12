@@ -188,7 +188,7 @@ class NetworkUtils private constructor() {
          */
         private var ip: String? = ""
 
-        private fun getIp(): String? {
+        fun getIp(): String? {
             try {
                 val en = NetworkInterface
                         .getNetworkInterfaces()
@@ -214,15 +214,18 @@ class NetworkUtils private constructor() {
          * 获取IP地址
          * @return
          */
-        val ipAddress: String?
-            get() {
-                if (!TextUtils.isEmpty(ip)) {
-                    return ip
-                } else {
-                    ip = getIp()
-                    return ip
-                }
+        /**
+         * 获取IP地址
+         * @return
+         */
+        fun getIpAddress(): String? {
+            if (!TextUtils.isEmpty(ip)) {
+                return ip
+            } else {
+                ip = getIp()
+                return ip
             }
+        }
     }
 
 }

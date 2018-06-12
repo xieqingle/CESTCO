@@ -18,10 +18,6 @@ abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView 
      */
     lateinit var mPresenter: T
     /**
-     * MVP V层
-     */
-    lateinit var mView: BaseView
-    /**
      * 显示等待对话框
      */
     lateinit var mProgressLoading: ProgressLoading
@@ -29,6 +25,8 @@ abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mProgressLoading = ProgressLoading.create(this)
+        mPresenter.provider = this
+        mPresenter.context = this
     }
 
     override fun showLoading() {

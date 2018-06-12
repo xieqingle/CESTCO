@@ -6,6 +6,12 @@ if (isUserModule.toBoolean()) {
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
+
+androidExtensions {
+    experimental = true
+}
+
+
 android {
     compileSdkVersion versions.compileSdkVersion
     defaultConfig {
@@ -45,6 +51,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation "com.android.support:appcompat-v7:$versions.support"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.1'
     testImplementation "junit:junit:$versions.junitVersion"
     androidTestImplementation "com.android.support.test:runner:$versions.runnerVersion"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$versions.espressoVersion"

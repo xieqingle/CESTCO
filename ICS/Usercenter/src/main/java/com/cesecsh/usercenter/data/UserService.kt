@@ -1,5 +1,8 @@
 package com.cesecsh.usercenter.data
 
+import io.reactivex.Observable
+import okhttp3.ResponseBody
+
 /**
  * 作者：RockQ on 2018/6/11
  * 邮箱：qingle6616@sina.com
@@ -8,5 +11,5 @@ package com.cesecsh.usercenter.data
  */
 interface UserService {
     //用户登陆
-    fun login(userName: String, password: String, pushId: String)
+    fun login(userName: String, password: String, pushId: String): Observable<ResponseBody>
 }

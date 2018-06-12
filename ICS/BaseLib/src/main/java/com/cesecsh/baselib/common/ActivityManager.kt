@@ -5,9 +5,10 @@ import android.content.Context
 import java.util.*
 
 /**
- * Created by 上海中电
+ * Created by RockQ
  * on 2016/10/28
- * activity管理类
+ *
+ * activity 管理类
  */
 
 class ActivityManager private constructor() {

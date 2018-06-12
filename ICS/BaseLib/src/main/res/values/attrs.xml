@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--************ QMUITopBar ***********-->
+    <declare-styleable name="TitleBar">
+        <attr name="titleGravity" format="enum">
+            <enum name="left_center" value="19"/>
+            <enum name="center" value="17"/>
+        </attr>
+        <attr name="needSeparator" format="boolean"/>
+        <attr name="separatorColor" format="color"/>
+        <attr name="separatorHeight" format="dimension"/>
+        <attr name="backgroundColor" format="color"/>
+        <attr name="leftDrawableId" format="reference"/>
+        <attr name="titleTextSize" format="dimension"/>
+        <attr name="qmui_topbar_title_text_size_with_subtitle" format="dimension"/>
+        <attr name="subTitleTextSize" format="dimension"/>
+        <attr name="titleColor" format="color"/>
+        <attr name="subTitleColor" format="color"/>
+        <attr name="titleHorizontalMargin" format="dimension"/>
+        <attr name="titleHorizontalPadding" format="dimension"/>
+        <attr name="imageViewWidth" format="dimension"/>
+        <attr name="imageViewHeight" format="dimension"/>
+        <attr name="textBtnHorizontalPadding" format="dimension"/>
+        <attr name="textBtnTextColorStateList" format="reference"/>
+        <attr name="textBtnTextSize" format="dimension"/>
+    </declare-styleable>
+</resources>

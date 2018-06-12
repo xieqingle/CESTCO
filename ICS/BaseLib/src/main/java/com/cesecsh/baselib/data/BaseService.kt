@@ -15,12 +15,12 @@ import retrofit2.http.FieldMap
  * 作者：RockQ on 2018/6/11
  * 邮箱：qingle6616@sina.com
  *
- * msg：
+ * msg：服务访问 service
  */
 interface BaseService {
     @POST
     @FormUrlEncoded
-    fun post(@Url url: String, @FieldMap requestMaps: Map<String, Any>): Observable<ResponseBody>
+    fun post(@Url url: String, @FieldMap requestMaps: Map<String, String>): Observable<ResponseBody>
 
     @POST
     @FormUrlEncoded
