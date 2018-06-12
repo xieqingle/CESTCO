@@ -16,7 +16,6 @@ abstract class BaseActivity : RxAppCompatActivity() {
         super.onCreate(savedInstanceState)
         ActivityManager.instance.addActivity(this)
         initPresenter()
-        initView()
     }
 
     override fun onDestroy() {
@@ -25,6 +24,4 @@ abstract class BaseActivity : RxAppCompatActivity() {
     }
 
     abstract fun initPresenter()
-    abstract fun initView()
-
 }

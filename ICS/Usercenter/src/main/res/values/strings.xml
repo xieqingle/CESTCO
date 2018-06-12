@@ -7,4 +7,11 @@
     <string name="title_activity_login">Sign in</string>
     <string name="login_activity_forget_password">忘记密码</string>
     <string name="login_activity_sign_in">立即注册</string>
+    <string name="please_input_right_phone">请填写正确的手机号码</string>
+    <string name="input_confirm_password">请再次输入密码</string>
+    <string name="hint_input_verification">请输入验证码</string>
+    <string name="sign_in_get_verification">获取验证码</string>
+    <string name="submit">提交</string>
+    <string name="hint_submit">轻触上面的“提交”按钮，即表示你同意</string>
+    <string name="user_agreements">“用户使用协议”</string>
 </resources>

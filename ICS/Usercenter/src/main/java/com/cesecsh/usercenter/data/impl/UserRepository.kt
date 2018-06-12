@@ -15,7 +15,7 @@ import okhttp3.ResponseBody
  */
 class UserRepository {
     fun login(username: String, password: String, pushId: String): Observable<ResponseBody> {
-        val maps = HashMap<String, Any>()
+        val maps = HashMap<String, String>()
         maps.put("username", username)
         maps.put("password", password)
         maps.put("JG_REGIST_ID", "1112222")

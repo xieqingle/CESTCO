@@ -20,13 +20,14 @@
         android:layout_below="@+id/activity_login_login_icon"
         android:layout_marginLeft="68px"
         android:layout_marginRight="68px"
-        android:layout_marginTop="100px">
+        android:layout_marginTop="80px">
 
         <ImageView
             android:id="@+id/iv_username"
             android:layout_width="52px"
             android:layout_height="52px"
-            android:layout_gravity="left"
+            android:layout_gravity="left|bottom"
+            android:layout_marginBottom="23px"
             android:src="@mipmap/account"/>
 
         <EditText
@@ -38,7 +39,9 @@
             android:hint="@string/input_phonenumber"
             android:inputType="phone"
             android:maxLength="11"
+            android:paddingBottom="23px"
             android:paddingLeft="76px"
+            android:paddingTop="68px"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:textSize="32px"
@@ -55,7 +58,6 @@
         android:layout_gravity="bottom"
         android:layout_marginLeft="68px"
         android:layout_marginRight="68px"
-        android:layout_marginTop="10dp"
         android:background="@color/white_50"/>
 
     <FrameLayout
@@ -65,19 +67,22 @@
         android:layout_below="@id/view"
         android:layout_marginLeft="68px"
         android:layout_marginRight="68px"
-        android:layout_marginTop="10dp">
+        >
 
         <ImageView
             android:id="@+id/iv_password"
             android:layout_width="52px"
             android:layout_height="52px"
+            android:layout_gravity="left|bottom"
+            android:layout_marginBottom="23px"
             android:src="@mipmap/password"/>
 
         <Button
             android:id="@+id/mBtnShowPassword"
             android:layout_width="40px"
             android:layout_height="40px"
-            android:layout_gravity="right"
+            android:layout_gravity="right|bottom"
+            android:layout_marginBottom="23px"
             android:background="@mipmap/password_hide"
             />
 
@@ -89,7 +94,9 @@
             android:background="@null"
             android:hint="@string/password"
             android:inputType="textPassword"
+            android:paddingBottom="23px"
             android:paddingLeft="76px"
+            android:paddingTop="68px"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:textSize="32px"
@@ -100,11 +107,10 @@
         android:id="@+id/view2"
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:layout_marginLeft="68px"
-        android:layout_marginRight="68px"
         android:layout_below="@+id/fl_login_password"
         android:layout_gravity="bottom"
-        android:layout_marginTop="10dp"
+        android:layout_marginLeft="68px"
+        android:layout_marginRight="68px"
         android:background="@color/white_50"/>
 
     <Button
@@ -119,9 +125,10 @@
         android:layout_marginRight="68px"
         android:layout_marginTop="74px"
         android:background="@drawable/btn_login"
-        android:textSize="32px"
+        android:enabled="false"
         android:text="@string/login"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:textSize="32px"/>
 
     <Button
         android:id="@+id/mBtnSignIn"
@@ -132,9 +139,9 @@
         android:layout_marginRight="68px"
         android:layout_marginTop="62px"
         android:background="@drawable/btn_ontime_register"
-        android:textSize="32px"
         android:text="@string/login_activity_sign_in"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:textSize="32px"/>
 
     <TextView
         android:id="@+id/tvForgetPassword"
@@ -142,8 +149,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="28px"
         android:onClick="forgetPassword"
+        android:padding="28px"
         android:text="@string/login_activity_forget_password"
         android:textColor="@color/white"
         android:textSize="28px"/>
