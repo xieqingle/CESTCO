@@ -8,8 +8,7 @@
 
     <com.cesecsh.baselib.widget.view.TitleBar
         android:id="@+id/mTitleBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        style="@style/MatchWrap"/>
 
     <FrameLayout
         android:id="@+id/fl_login_username"
@@ -28,7 +27,7 @@
             android:src="@mipmap/register_account"/>
 
         <EditText
-            android:id="@+id/et_input_phone_num"
+            android:id="@+id/mEtPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@null"
@@ -82,7 +81,7 @@
             android:background="@color/register_line"/>
 
         <EditText
-            android:id="@+id/et_sign_in_password"
+            android:id="@+id/mEtPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@null"
@@ -129,7 +128,7 @@
             android:background="@color/register_line"/>
 
         <EditText
-            android:id="@+id/et_sign_in_confirm_password"
+            android:id="@+id/mEtConfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@null"
@@ -155,7 +154,7 @@
 
 
         <EditText
-            android:id="@+id/et_sign_in_verification"
+            android:id="@+id/mEtVerification"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@null"
@@ -186,8 +185,8 @@
             android:background="@color/register_line"/>
     </FrameLayout>
 
-    <Button
-        android:id="@+id/btn_sign_in_submit"
+    <com.cesecsh.baselib.widget.view.AlphaButton
+        android:id="@+id/mBtnSubmit"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -195,6 +194,7 @@
         android:layout_marginRight="68px"
         android:layout_marginTop="74px"
         android:background="@drawable/selector_btn_red2white"
+        android:enabled="false"
         android:text="@string/submit"
         android:textColor="@drawable/selector_text_white2red"
         android:textSize="34px"/>

@@ -2,11 +2,13 @@ package com.cesecsh.usercenter.ui.activity
 
 import android.os.Bundle
 import android.view.View
+import com.cesecsh.baselib.ext.enable
 import com.cesecsh.baselib.ui.BaseMvpActivity
 import com.cesecsh.baselib.utils.ScreenFitUtils
 import com.cesecsh.usercenter.R
 import com.cesecsh.usercenter.presenter.ForgetPasswordPresenter
 import com.cesecsh.usercenter.presenter.view.ForgetPasswordView
+import kotlinx.android.synthetic.main.activity_forget_password.*
 
 class ForgetPasswordActivity : BaseMvpActivity<ForgetPasswordPresenter>(), View.OnClickListener, ForgetPasswordView {
     override fun onClick(v: View?) {
@@ -22,5 +24,21 @@ class ForgetPasswordActivity : BaseMvpActivity<ForgetPasswordPresenter>(), View.
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forget_password)
         ScreenFitUtils.auto(this)
+        initView()
+        mBtnSubmit.enable(mEtPhone, { isBtnEnable() })
+        mBtnSubmit.enable(mEtVerification, { isBtnEnable() })
+        mBtnSubmit.enable(mEtPassword, { isBtnEnable() })
+    }
+
+    private fun isBtnEnable(): Boolean {
+        return mEtPhone.text.isNullOrEmpty().not()
+                && mEtVerification.text.isNullOrEmpty().not()
+                && mEtPassword.text.isNullOrEmpty().not()
+    }
+
+    private fun initView() {
+        mTitleBar.addLeftBackImageButton().setOnClickListener { finish() }
+        mTitleBar.setTitle("忘记密码")
+
     }
 }
