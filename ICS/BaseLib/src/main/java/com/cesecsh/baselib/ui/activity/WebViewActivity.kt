@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import com.cesecsh.baselib.R
-import com.cesecsh.baselib.ui.BaseActivity
+import com.cesecsh.baselib.ui.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_web_view.*
 import android.webkit.WebSettings
 import com.cesecsh.baselib.data.BaseUrls

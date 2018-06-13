@@ -24,5 +24,6 @@
     <string name="passwordLimit">密码6–20位，且包含数字和字母</string>
     <string name="twice_password_match_faliure">两次密码不匹配</string>
     <string name="register_success">注册成功</string>
+    <string name="login_success">登陆成功</string>
 
 </resources>

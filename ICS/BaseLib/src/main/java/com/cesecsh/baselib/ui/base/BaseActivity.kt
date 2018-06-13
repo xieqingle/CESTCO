@@ -1,6 +1,5 @@
-package com.cesecsh.baselib.ui
+package com.cesecsh.baselib.ui.base
 
-import android.app.Activity
 import android.os.Bundle
 import com.cesecsh.baselib.common.ActivityManager
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity

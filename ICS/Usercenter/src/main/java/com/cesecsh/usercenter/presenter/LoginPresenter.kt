@@ -4,6 +4,7 @@ import com.cesecsh.baselib.data.JsonUtils
 import com.cesecsh.baselib.rx.BaseObserver
 import com.cesecsh.baselib.ext.execute
 import com.cesecsh.baselib.presenter.BasePresenter
+import com.cesecsh.usercenter.R
 import com.cesecsh.usercenter.data.UserService
 import com.cesecsh.usercenter.data.impl.UserServiceImpl
 import com.cesecsh.usercenter.data.protocol.User
@@ -29,9 +30,9 @@ class LoginPresenter : BasePresenter<LoginView>() {
                     override fun onNext(t: ResponseBody) {
                         val normalObject = JsonUtils.json2NormalObject<User>(t.string(), User::class.java)
                         val user = normalObject.obj
-                        if (user != null)
-                            (mView as LoginView).showLoginResult("登陆成功")
-                        else mView.onError(normalObject.message)
+                        if (user != null) {
+                            (mView as LoginView).showLoginResult(context.getString(R.string.login_success))
+                        } else mView.onError(normalObject.message)
                     }
                 }, mProvider)
     }

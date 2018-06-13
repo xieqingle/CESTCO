@@ -12,5 +12,6 @@
         <activity android:name=".ui.activity.LoginActivity"/>
         <activity android:name=".ui.activity.RegisterActivity"/>
         <activity android:name=".ui.activity.RetrievePasswordActivity"/>
+        <activity android:name="com.cesecsh.baselib.ui.activity.WebViewActivity"/>
     </application>
 </manifest>

@@ -1,4 +1,4 @@
-package com.cesecsh.baselib.ui
+package com.cesecsh.baselib.ui.base
 
 import android.os.Bundle
 import com.cesecsh.baselib.presenter.BasePresenter

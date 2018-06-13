@@ -8,7 +8,7 @@ import android.view.View
 import com.cesecsh.baselib.ext.enable
 import com.cesecsh.baselib.ext.isEnableByPhone
 import com.cesecsh.baselib.ext.tarnsPasswordVisible
-import com.cesecsh.baselib.ui.BaseMvpActivity
+import com.cesecsh.baselib.ui.base.BaseMvpActivity
 import com.cesecsh.baselib.ui.activity.WebViewActivity
 import com.cesecsh.baselib.utils.*
 import com.cesecsh.usercenter.R

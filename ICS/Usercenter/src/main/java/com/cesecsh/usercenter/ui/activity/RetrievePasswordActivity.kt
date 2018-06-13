@@ -2,12 +2,10 @@ package com.cesecsh.usercenter.ui.activity
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.text.method.HideReturnsTransformationMethod
-import android.text.method.PasswordTransformationMethod
 import android.view.View
 import com.cesecsh.baselib.ext.enable
 import com.cesecsh.baselib.ext.isEnableByPhone
-import com.cesecsh.baselib.ui.BaseMvpActivity
+import com.cesecsh.baselib.ui.base.BaseMvpActivity
 import com.cesecsh.baselib.utils.RegularUtils
 import com.cesecsh.baselib.utils.ScreenFitUtils
 import com.cesecsh.usercenter.R
