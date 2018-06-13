@@ -33,6 +33,6 @@ class LoginPresenter : BasePresenter<LoginView>() {
                             (mView as LoginView).showLoginResult("登陆成功")
                         else mView.onError(normalObject.message)
                     }
-                }, provider)
+                }, mProvider)
     }
 }

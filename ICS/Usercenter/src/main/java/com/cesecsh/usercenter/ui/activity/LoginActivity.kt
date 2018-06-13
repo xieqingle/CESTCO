@@ -1,10 +1,9 @@
 package com.cesecsh.usercenter.ui.activity
 
 import android.os.Bundle
-import android.text.method.HideReturnsTransformationMethod
-import android.text.method.PasswordTransformationMethod
 import android.view.View
 import com.cesecsh.baselib.ext.enable
+import com.cesecsh.baselib.ext.tarnsPasswordVisible
 import com.cesecsh.baselib.ui.BaseMvpActivity
 import com.cesecsh.baselib.utils.RegularUtils
 import com.cesecsh.baselib.utils.ScreenFitUtils
@@ -21,21 +20,8 @@ import org.jetbrains.anko.toast
  */
 class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClickListener {
 
-
-    private var isShowPassword: Boolean = true
-
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.mBtnShowPassword -> {
-                if (isShowPassword) {
-                    mEtPassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
-                    mBtnShowPassword.setBackgroundResource(R.mipmap.password_show)
-                } else {
-                    mEtPassword.transformationMethod = PasswordTransformationMethod.getInstance()
-                    mBtnShowPassword.setBackgroundResource(R.mipmap.password_hide)
-                }
-                isShowPassword = !isShowPassword
-            }
             R.id.mBtnLogin -> {
                 if (!RegularUtils.isMobileExact(mEtPhone.text.toString())) {
                     toast(getString(R.string.please_input_right_phone))
@@ -47,7 +33,7 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
                 startActivity<RegisterActivity>()
             }
             R.id.tvForgetPassword -> {
-                startActivity<ForgetPasswordActivity>()
+                startActivity<RetrievePasswordActivity>()
             }
         }
     }
@@ -68,7 +54,7 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
         ScreenFitUtils.auto(this)
         mBtnLogin.enable(mEtPhone, { isBtnEnable() })
         mBtnLogin.enable(mEtPassword, { isBtnEnable() })
-        mBtnShowPassword.setOnClickListener(this)
+        mBtnShowPassword.tarnsPasswordVisible(mEtPassword)
         mBtnLogin.setOnClickListener(this)
         mBtnSignIn.setOnClickListener(this)
         tvForgetPassword.setOnClickListener(this)

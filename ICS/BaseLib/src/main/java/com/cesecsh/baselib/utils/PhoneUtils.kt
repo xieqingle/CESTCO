@@ -229,7 +229,6 @@ object PhoneUtils {
             //2.8将数据刷新到文件中
             xmlSerializer.flush()
         } catch (e: Exception) {
-            // TODO Auto-generated catch block
             e.printStackTrace()
         }
 

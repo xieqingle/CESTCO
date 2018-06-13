@@ -7,4 +7,20 @@
     <color name="white">#ffffff</color>
 
     <color name="sepatarorColor">#DEE0E2</color>
+
+    <color name="colorTransparent">#00000000</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="color75White">#C0FFFFFF</color>
+    <color name="color50White">#80FFFFFF</color>
+    <color name="color25White">#40FFFFFF</color>
+    <color name="color15White">#26FFFFFF</color>
+    <color name="color10White">#19FFFFFF</color>
+
+    <color name="colorBlack">#000000</color>
+    <color name="color75Black">#C0000000</color>
+    <color name="color60Black">#99000000</color>
+    <color name="color50Black">#80000000</color>
+    <color name="color25Black">#40000000</color>
+    <color name="color15Black">#26000000</color>
+    <color name="color10Black">#19000000</color>
 </resources>

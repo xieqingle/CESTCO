@@ -1,6 +1,7 @@
 package com.cesecsh.baselib.utils
 
 import android.support.annotation.Nullable
+import android.view.TextureView
 import java.io.Closeable
 import java.io.IOException
 import java.util.*
@@ -9,7 +10,7 @@ import java.util.*
  * 作者：RockQ on 2018/6/12
  * 邮箱：qingle6616@sina.com
  *
- * msg：
+ * msg：关于字符串的相关操作
  */
 object StringUtils {
     /**

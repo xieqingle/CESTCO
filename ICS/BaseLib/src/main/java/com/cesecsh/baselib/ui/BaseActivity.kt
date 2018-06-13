@@ -15,7 +15,6 @@ abstract class BaseActivity : RxAppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ActivityManager.instance.addActivity(this)
-        initPresenter()
     }
 
     override fun onDestroy() {
@@ -23,5 +22,5 @@ abstract class BaseActivity : RxAppCompatActivity() {
         ActivityManager.instance.finishActivity(this)
     }
 
-    abstract fun initPresenter()
+
 }

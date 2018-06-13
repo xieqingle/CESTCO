@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="leftViewId" type="id"/>
+    <item name="titleViewId" type="id"/>
+    <item name="rightViewId" type="id"/>
+    <item name="subTitleViewId" type="id"/>
 </resources>

@@ -1,5 +1,7 @@
 package com.cesecsh.baselib.data
 
+import com.cesecsh.baselib.data.domain.NormalObject
+import com.cesecsh.baselib.data.domain.SimpleObject
 import com.google.gson.Gson
 import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type
@@ -22,6 +24,12 @@ object JsonUtils {
         val gson = Gson()
         val objectType = type(NormalObject::class.java, clazz)
         return gson.fromJson(jsonStr, objectType)
+
+    }
+
+    fun json2SimpleObject(jsonStr: String): SimpleObject {
+        val gson = Gson()
+        return gson.fromJson(jsonStr, SimpleObject::class.java)
 
     }
 

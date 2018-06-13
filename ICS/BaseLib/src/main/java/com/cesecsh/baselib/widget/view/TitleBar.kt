@@ -110,7 +110,7 @@ open class TitleBar(context: Context?, attrs: AttributeSet?, defStyleAttr: Int =
         mLeftBackDrawableRes = array.getResourceId(R.styleable.TitleBar_leftDrawableRes, R.mipmap.back)
         mTitleGravity = array.getInt(R.styleable.TitleBar_titleGravity, Gravity.CENTER)
         mTitleTextSize = array.getDimensionPixelSize(R.styleable.TitleBar_titleTextSize, DensityUtils.dp2px(getContext(), ResourceUtils.getInteger(R.integer.titleTextSize).toFloat()))
-        mTitleTextSizeWithSubTitle = array.getDimensionPixelSize(R.styleable.TitleBar_titleTextSize, ResourceUtils.getInteger(R.integer.subTitleTextSize))
+        mTitleTextSizeWithSubTitle = array.getDimensionPixelSize(R.styleable.TitleBar_titleTextSize,DensityUtils.dp2px(getContext(), ResourceUtils.getInteger(R.integer.subTitleTextSize).toFloat()))
         mSubTitleTextSize = array.getDimensionPixelSize(R.styleable.TitleBar_subTitleTextSize, ResourceUtils.getInteger(R.integer.subTitleTextSize))
         mTitleTextColor = array.getColor(R.styleable.TitleBar_titleColor, Color.WHITE)
         mSubTitleTextColor = array.getColor(R.styleable.TitleBar_subTitleColor, Color.WHITE)
@@ -118,9 +118,9 @@ open class TitleBar(context: Context?, attrs: AttributeSet?, defStyleAttr: Int =
         mTitleContainerPaddingHor = array.getDimensionPixelSize(R.styleable.TitleBar_titleHorizontalPadding, 0)
         mTopBarImageBtnWidth = array.getDimensionPixelSize(R.styleable.TitleBar_imageViewWidth, DensityUtils.dp2px(getContext(), ResourceUtils.getInteger(R.integer.titleBarHeight).toFloat()))
         mTopBarImageBtnHeight = array.getDimensionPixelSize(R.styleable.TitleBar_imageViewHeight, DensityUtils.dp2px(getContext(), ResourceUtils.getInteger(R.integer.titleBarHeight).toFloat()))
-        mTopBarTextBtnPaddingHor = array.getDimensionPixelSize(R.styleable.TitleBar_textBtnHorizontalPadding, 0)
+        mTopBarTextBtnPaddingHor = array.getDimensionPixelSize(R.styleable.TitleBar_textBtnHorizontalPadding,  DensityUtils.dp2px(getContext(), ResourceUtils.getInteger(R.integer.defaultViewPadding).toFloat()))
         mTopBarTextBtnTextColor = array.getColorStateList(R.styleable.TitleBar_textBtnTextColorStateList)
-        mTopBarTextBtnTextSize = array.getDimensionPixelSize(R.styleable.TitleBar_textBtnTextSize, ResourceUtils.getInteger(R.integer.subTitleTextSize))
+        mTopBarTextBtnTextSize = array.getDimensionPixelSize(R.styleable.TitleBar_textBtnTextSize, DensityUtils.dp2px(getContext(), ResourceUtils.getInteger(R.integer.subTitleTextSize).toFloat()))
 
     }
 //
@@ -436,9 +436,9 @@ open class TitleBar(context: Context?, attrs: AttributeSet?, defStyleAttr: Int =
         val rightButton = generateTopBarImageButton(drawableResId)
         this.addRightView(rightButton, viewId, generateTopBarImageButtonLayoutParams())
         rightButton.setPadding(
-                DensityUtils.dp2px(context, ResourceUtils.getInteger(R.integer.defaultTitleImgBtnPadding).toFloat()),
+                DensityUtils.dp2px(context, ResourceUtils.getInteger(R.integer.defaultViewPadding).toFloat()),
                 0,
-                DensityUtils.dp2px(context, ResourceUtils.getInteger(R.integer.defaultTitleImgBtnPadding).toFloat()),
+                DensityUtils.dp2px(context, ResourceUtils.getInteger(R.integer.defaultViewPadding).toFloat()),
                 0)
         return rightButton
     }
@@ -454,9 +454,9 @@ open class TitleBar(context: Context?, attrs: AttributeSet?, defStyleAttr: Int =
         val leftButton = generateTopBarImageButton(drawableResId)
         this.addLeftView(leftButton, viewId, generateTopBarImageButtonLayoutParams())
         leftButton.setPadding(
-                DensityUtils.dp2px(context, ResourceUtils.getInteger(R.integer.defaultTitleImgBtnPadding).toFloat()),
+                DensityUtils.dp2px(context, ResourceUtils.getInteger(R.integer.defaultViewPadding).toFloat()),
                 0,
-                DensityUtils.dp2px(context, ResourceUtils.getInteger(R.integer.defaultTitleImgBtnPadding).toFloat()),
+                DensityUtils.dp2px(context, ResourceUtils.getInteger(R.integer.defaultViewPadding).toFloat()),
                 0)
         return leftButton
     }
@@ -532,7 +532,7 @@ open class TitleBar(context: Context?, attrs: AttributeSet?, defStyleAttr: Int =
         button.minimumWidth = 0
         button.minimumHeight = 0
         button.setPadding(mTopBarTextBtnPaddingHor, 0, mTopBarTextBtnPaddingHor, 0)
-        button.setTextColor(mTopBarTextBtnTextColor)
+        button.setTextColor(if (mTopBarTextBtnTextColor != null) mTopBarTextBtnTextColor else ResourceUtils.getColorStateList(R.color.text_btn_color_state_list))
         button.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTopBarTextBtnTextSize.toFloat())
         button.gravity = Gravity.CENTER
         button.text = text

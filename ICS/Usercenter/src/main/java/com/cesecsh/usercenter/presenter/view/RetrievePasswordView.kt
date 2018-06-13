@@ -1,7 +1,6 @@
 package com.cesecsh.usercenter.presenter.view
 
 import com.cesecsh.baselib.presenter.view.BaseView
-import com.cesecsh.usercenter.data.protocol.Agreement
 
 /**
  * 作者：RockQ on 2018/6/12
@@ -9,16 +8,11 @@ import com.cesecsh.usercenter.data.protocol.Agreement
  *
  * msg：
  */
-interface RegisterView : BaseView {
-    /**
-     * 用户协议
-     */
-    fun onAgreeementResult(agreement: Agreement)
-
+interface RetrievePasswordView : BaseView {
     /**
      * 用户密码重置反馈结果
      */
-    fun onRegisterResult(result: String)
+    fun onRetrieveResult(result: String)
 
     /**
      * 获取验证码

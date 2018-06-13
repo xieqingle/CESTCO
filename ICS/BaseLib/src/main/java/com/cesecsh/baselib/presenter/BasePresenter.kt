@@ -21,16 +21,8 @@ open class BasePresenter<T : BaseView> {
 
     lateinit var context: Context
 
-    lateinit var provider: LifecycleProvider<ActivityEvent>
+    lateinit var mProvider: LifecycleProvider<ActivityEvent>
 
-//    constructor(lifecycleProvider: LifecycleProvider<ActivityEvent>) {
-//        provider = lifecycleProvider
-//    }
-//
-//    protected fun getProvider(): LifecycleProvider<ActivityEvent> {
-//        return provider
-//
-//    }
 
     /*
         检查网络是否可用

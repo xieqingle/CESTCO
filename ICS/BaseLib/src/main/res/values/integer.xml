@@ -5,7 +5,7 @@
     <integer name="titleTextSize">34</integer>
     <integer name="subTitleTextSize">26</integer>
     <integer name="subTitleMarginTop">5</integer>
-    <integer name="defaultTitleImgBtnPadding">20</integer>
+    <integer name="defaultViewPadding">20</integer>
     <!--普通字体数值-->
     <integer name="text_indicator_size">30</integer>
     <integer name="text_msg_hint_size">20</integer>

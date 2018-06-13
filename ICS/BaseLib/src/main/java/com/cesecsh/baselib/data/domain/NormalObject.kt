@@ -1,4 +1,4 @@
-package com.cesecsh.baselib.data
+package com.cesecsh.baselib.data.domain
 
 import com.google.gson.annotations.SerializedName
 

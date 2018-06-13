@@ -14,4 +14,15 @@
     <string name="submit">提交</string>
     <string name="hint_submit">轻触上面的“提交”按钮，即表示你同意</string>
     <string name="user_agreements">“用户使用协议”</string>
+    <string name="password_retrieve">密码重置</string>
+    <string name="sms_send">发送短信</string>
+    <string name="send_sms_warning">我们将把验证码发送到以下号码:\n</string>
+    <string name="confirm">确定</string>
+    <string name="verification_send_success">验证码已经发送</string>
+    <string name="password_change_success">密码修改成功!</string>
+    <string name="register">注册</string>
+    <string name="passwordLimit">密码6–20位，且包含数字和字母</string>
+    <string name="twice_password_match_faliure">两次密码不匹配</string>
+    <string name="register_success">注册成功</string>
+
 </resources>

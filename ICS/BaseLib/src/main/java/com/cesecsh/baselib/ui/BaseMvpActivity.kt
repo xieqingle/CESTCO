@@ -24,8 +24,9 @@ abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        initPresenter()
         mProgressLoading = ProgressLoading.create(this)
-        mPresenter.provider = this
+        mPresenter.mProvider = this
         mPresenter.context = this
     }
 
@@ -40,4 +41,5 @@ abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView 
     override fun onError(text: String) {
         toast(text)
     }
+    abstract fun initPresenter()
 }
