@@ -9,6 +9,7 @@ import kotlinx.android.parcel.Parcelize
  *
  * msg：
  */
+
 @Parcelize
 data class User(
         val id: Int,

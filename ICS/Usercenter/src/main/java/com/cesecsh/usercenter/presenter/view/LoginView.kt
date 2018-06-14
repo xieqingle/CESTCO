@@ -1,6 +1,7 @@
 package com.cesecsh.usercenter.presenter.view
 
 import com.cesecsh.baselib.presenter.view.BaseView
+import com.cesecsh.usercenter.data.protocol.User
 
 /**
  * 作者：RockQ on 2018/6/11
@@ -9,5 +10,5 @@ import com.cesecsh.baselib.presenter.view.BaseView
  * msg：登陆结果处理
  */
 interface LoginView : BaseView {
-    fun showLoginResult(str: String)
+    fun showLoginResult(user: User)
 }

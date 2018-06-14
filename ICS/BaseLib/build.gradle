@@ -1,6 +1,8 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'kotlin-kapt'
+//apply plugin: 'org.greenrobot.greendao'
 
 //添加 kotlin parcelable 注释快捷方法
 androidExtensions {
@@ -9,7 +11,10 @@ androidExtensions {
 
 
 android {
+
+
     compileSdkVersion versions.compileSdkVersion
+
     defaultConfig {
         minSdkVersion versions.minSdkVersion
         targetSdkVersion versions.targetSdkVersion
@@ -28,7 +33,14 @@ android {
     }
 
 }
-
+//greendao {
+//    //数据库的schema版本，也可以理解为数据库版本号
+//    schemaVersion 1
+//    //设置DaoMaster、DaoSession、Dao包名，也就是要放置这些类的包的全路径。
+//    daoPackage 'com.cesecsh.baselib.greendao'
+//    //设置DaoMaster、DaoSession、Dao目录
+//    targetGenDir 'src/main/java'
+//}
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -48,9 +60,20 @@ dependencies {
     api "com.squareup.okhttp3:okhttp:$versions.okHttpVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:$versions.okHttpVersion"
     api "org.jetbrains.anko:anko-commons:$versions.ankoVersion"
+//    // room
+//    api "android.arch.persistence.room:runtime:$versions.roomVersion"
+//    annotationProcessor "android.arch.persistence.room:compiler:$versions.roomVersion"
+//    kapt "android.arch.persistence.room:compiler:$versions.roomVersion"
+//    // optional - RxJava support for Room
+//    api "android.arch.persistence.room:rxjava2:$versions.roomVersion"
+//    api "org.greenrobot:greendao:$rootProject.greendao"
+
     //RxLifecycle
     api "com.trello.rxlifecycle2:rxlifecycle-kotlin:$versions.rxLifecycleVersion"
     //If you want pre-written Activities and Fragments you can subclass as providers
     api "com.trello.rxlifecycle2:rxlifecycle-components:$versions.rxLifecycleVersion"
+
+    api "com.alibaba:arouter-api:$versions.ArouterVersion"
+
 
 }

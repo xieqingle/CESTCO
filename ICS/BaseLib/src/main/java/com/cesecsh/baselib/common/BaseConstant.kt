@@ -12,8 +12,10 @@ class BaseConstant {
         const val KEY_SP_TOKEN = "token"
         //SP表名
         const val TABLE_PREFS = "ics"
-        val SIGNIN = "REGIST"// 用户注册模板
-        val RETRIEVE = "EDIT_PASSWORD"// 密码修改模版
-        val TRADE_RETRIEVE = "EDIT_PAY_PASSWORD"// 修改支付密码模版
+        const val SIGNIN = "REGIST"// 用户注册模板
+        const val RETRIEVE = "EDIT_PASSWORD"// 密码修改模版
+        const val DATABASE_NAME = "ics-db"
+        const val TRADE_RETRIEVE = "EDIT_PAY_PASSWORD"// 修改支付密码模版
+        const val MAIN_PATH = "/app/main"// 用户注册模板
     }
 }

@@ -2,12 +2,15 @@ package com.cesecsh.usercenter.ui.activity
 
 import android.os.Bundle
 import android.view.View
+import com.alibaba.android.arouter.launcher.ARouter
+import com.cesecsh.baselib.common.BaseConstant
 import com.cesecsh.baselib.ext.enable
 import com.cesecsh.baselib.ext.tarnsPasswordVisible
 import com.cesecsh.baselib.ui.base.BaseMvpActivity
 import com.cesecsh.baselib.utils.RegularUtils
 import com.cesecsh.baselib.utils.ScreenFitUtils
 import com.cesecsh.usercenter.R
+import com.cesecsh.usercenter.data.protocol.User
 import com.cesecsh.usercenter.presenter.LoginPresenter
 import com.cesecsh.usercenter.presenter.view.LoginView
 import kotlinx.android.synthetic.main.activity_login.*
@@ -39,8 +42,11 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
     }
 
 
-    override fun showLoginResult(str: String) {
-        toast(str)
+    override fun showLoginResult(user: User) {
+        ARouter.getInstance().build(BaseConstant.MAIN_PATH)
+                .withBoolean("login", true)
+                .navigation()
+
     }
 
     override fun initPresenter() {
@@ -61,7 +67,8 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
     }
 
     private fun isBtnEnable(): Boolean {
-        return mEtPassword.text.isNullOrEmpty().not() && mEtPhone.text.isNullOrEmpty().not()
+        return mEtPassword.text.isNullOrEmpty().not()
+                && mEtPhone.text.isNullOrEmpty().not()
 
     }
 }

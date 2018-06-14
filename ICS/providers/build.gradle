@@ -1,15 +1,9 @@
-apply plugin: 'com.android.application'
-
-apply plugin: 'kotlin-android'
-
-apply plugin: 'kotlin-android-extensions'
-
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion versions.compileSdkVersion
-    defaultConfig {
-        applicationId "com.cesecsh.ics"
 
+    defaultConfig {
         minSdkVersion versions.minSdkVersion
         targetSdkVersion versions.targetSdkVersion
         versionCode versions.versionCode
@@ -17,12 +11,8 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [ moduleName : project.getName() ]
-            }
-        }
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -30,22 +20,17 @@ android {
         }
     }
 
-
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+
     implementation "com.android.support:appcompat-v7:$versions.support"
-    implementation "com.android.support.constraint:constraint-layout:$versions.constaintVersion"
     testImplementation "junit:junit:$versions.junitVersion"
     androidTestImplementation "com.android.support.test:runner:$versions.runnerVersion"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$versions.espressoVersion"
-    if (isUserModule.toBoolean()) {
-        implementation project(':Usercenter')
-    }
-    api "com.alibaba:arouter-api:$versions.ArouterVersion"
-    annotationProcessor "com.alibaba:arouter-compiler:$versions.aRouteCompilerVersion"
-    implementation project(':Providers')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
+    api project(':BaseLib')
 }

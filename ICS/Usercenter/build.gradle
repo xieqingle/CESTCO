@@ -7,6 +7,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 
+
 androidExtensions {
     experimental = true
 }
@@ -21,6 +22,11 @@ android {
         versionName versions.versionName
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
+        }
 
     }
 
@@ -56,8 +62,10 @@ dependencies {
     androidTestImplementation "com.android.support.test:runner:$versions.runnerVersion"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$versions.espressoVersion"
 
-    implementation project(':BaseLib')
+    implementation project(':Providers')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    api "com.alibaba:arouter-api:$versions.ArouterVersion"
+    annotationProcessor "com.alibaba:arouter-compiler:$versions.aRouteCompilerVersion"
 }
 repositories {
     mavenCentral()
