@@ -6,6 +6,7 @@
             <enum name="left_center" value="19"/>
             <enum name="center" value="17"/>
         </attr>
+        <attr name="isAutoFit" format="boolean"/>
         <attr name="needSeparator" format="boolean"/>
         <attr name="separatorColor" format="color"/>
         <attr name="separatorHeight" format="dimension"/>

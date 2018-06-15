@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.activity.MainActivity">
 
+
     <ViewStub
         android:id="@+id/mVsMainLayout"
         android:layout_width="match_parent"

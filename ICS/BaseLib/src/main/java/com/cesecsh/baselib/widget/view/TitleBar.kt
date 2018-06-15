@@ -66,11 +66,12 @@ open class TitleBar(context: Context?, attrs: AttributeSet?, defStyleAttr: Int =
     private var mTopBarTextBtnTextSize: Int = 0
     private var mTopbarHeight = -1
     private var mTitleContainerRect: Rect? = null
+    private var isAutoFit: Boolean = false
 
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context) : this(context, null, 0)
 
-//    // ========================= title 相关的方法
+    //    // ========================= title 相关的方法
 //
 //    // 这个构造器只用于QMUI内部，不开放给外面用，目前用于QMUITopBarLayout
 //    internal fun QMUITopBar(context: Context, inTopBarLayout: Boolean): ??? {
@@ -86,6 +87,7 @@ open class TitleBar(context: Context?, attrs: AttributeSet?, defStyleAttr: Int =
 //        }
 //    }
 
+
     private fun initVar() {
         mLeftLastViewId = DEFAULT_VIEW_ID
         mRightLastViewId = DEFAULT_VIEW_ID
@@ -98,6 +100,7 @@ open class TitleBar(context: Context?, attrs: AttributeSet?, defStyleAttr: Int =
         mTopBarSeparatorColor = array.getColor(R.styleable.TitleBar_separatorColor,
                 ContextCompat.getColor(context, R.color.sepatarorColor))
         mTopBarSeparatorHeight = array.getDimensionPixelSize(R.styleable.TitleBar_separatorHeight, 1)
+        isAutoFit = array.getBoolean(R.styleable.TitleBar_isAutoFit, false)
         mTopBarBgColor = array.getColor(R.styleable.TitleBar_backgroundColor, ResourceUtils.getColor(R.color.colorPrimary))
         getCommonFieldFormTypedArray(context, array)
         val hasSeparator = array.getBoolean(R.styleable.TitleBar_needSeparator, true)
@@ -109,21 +112,22 @@ open class TitleBar(context: Context?, attrs: AttributeSet?, defStyleAttr: Int =
     private fun getCommonFieldFormTypedArray(context: Context, array: TypedArray) {
         mLeftBackDrawableRes = array.getResourceId(R.styleable.TitleBar_leftDrawableRes, R.mipmap.back)
         mTitleGravity = array.getInt(R.styleable.TitleBar_titleGravity, Gravity.CENTER)
-        mTitleTextSize = array.getDimensionPixelSize(R.styleable.TitleBar_titleTextSize, DensityUtils.dp2px(getContext(), ResourceUtils.getInteger(R.integer.titleTextSize).toFloat()))
-        mTitleTextSizeWithSubTitle = array.getDimensionPixelSize(R.styleable.TitleBar_titleTextSize, DensityUtils.dp2px(getContext(), ResourceUtils.getInteger(R.integer.subTitleTextSize).toFloat()))
+        mTitleTextSize = array.getDimensionPixelSize(R.styleable.TitleBar_titleTextSize,getDimension( ResourceUtils.getInteger(R.integer.titleTextSize)))
+        mTitleTextSizeWithSubTitle = array.getDimensionPixelSize(R.styleable.TitleBar_titleTextSize, getDimension(ResourceUtils.getInteger(R.integer.subTitleTextSize)))
         mSubTitleTextSize = array.getDimensionPixelSize(R.styleable.TitleBar_subTitleTextSize, ResourceUtils.getInteger(R.integer.subTitleTextSize))
         mTitleTextColor = array.getColor(R.styleable.TitleBar_titleColor, Color.WHITE)
         mSubTitleTextColor = array.getColor(R.styleable.TitleBar_subTitleColor, Color.WHITE)
         mTitleMarginHorWhenNoBtnAside = array.getDimensionPixelSize(R.styleable.TitleBar_titleHorizontalMargin, 0)
         mTitleContainerPaddingHor = array.getDimensionPixelSize(R.styleable.TitleBar_titleHorizontalPadding, 0)
-        mTopBarImageBtnWidth = array.getDimensionPixelSize(R.styleable.TitleBar_imageViewWidth, DensityUtils.dp2px(getContext(), ResourceUtils.getInteger(R.integer.titleBarHeight).toFloat()))
-        mTopBarImageBtnHeight = array.getDimensionPixelSize(R.styleable.TitleBar_imageViewHeight, DensityUtils.dp2px(getContext(), ResourceUtils.getInteger(R.integer.titleBarHeight).toFloat()))
-        mTopBarTextBtnPaddingHor = array.getDimensionPixelSize(R.styleable.TitleBar_textBtnHorizontalPadding, DensityUtils.dp2px(getContext(), ResourceUtils.getInteger(R.integer.defaultViewPadding).toFloat()))
+        mTopBarImageBtnWidth = array.getDimensionPixelSize(R.styleable.TitleBar_imageViewWidth, getDimension(ResourceUtils.getInteger(R.integer.titleBarHeight)))
+        mTopBarImageBtnHeight = array.getDimensionPixelSize(R.styleable.TitleBar_imageViewHeight, getDimension(ResourceUtils.getInteger(R.integer.titleBarHeight)))
+        mTopBarTextBtnPaddingHor = array.getDimensionPixelSize(R.styleable.TitleBar_textBtnHorizontalPadding, getDimension(ResourceUtils.getInteger(R.integer.defaultViewPadding)))
         mTopBarTextBtnTextColor = array.getColorStateList(R.styleable.TitleBar_textBtnTextColorStateList)
-        mTopBarTextBtnTextSize = array.getDimensionPixelSize(R.styleable.TitleBar_textBtnTextSize, DensityUtils.dp2px(getContext(), ResourceUtils.getInteger(R.integer.subTitleTextSize).toFloat()))
+        mTopBarTextBtnTextSize = array.getDimensionPixelSize(R.styleable.TitleBar_textBtnTextSize, getDimension(ResourceUtils.getInteger(R.integer.subTitleTextSize)))
 
     }
-//
+
+    //
 //    override fun onAttachedToWindow() {
 //        super.onAttachedToWindow()
 //        var parent: ViewParent? = parent
@@ -135,6 +139,8 @@ open class TitleBar(context: Context?, attrs: AttributeSet?, defStyleAttr: Int =
 //            parent = parent.parent
 //        }
 //    }
+    private fun getDimension(dimen: Int) = if (isAutoFit) DensityUtils.dp2px(context, dimen.toFloat()) else dimen
+
 
     /**
      * 在 TopBar 的中间添加 View，如果此前已经有 View 通过该方法添加到 TopBar，则旧的View会被 remove
@@ -222,19 +228,6 @@ open class TitleBar(context: Context?, attrs: AttributeSet?, defStyleAttr: Int =
     }
 
     /**
-     * 更新 titleView 的样式（因为有没有 subTitle 会影响 titleView 的样式）
-     */
-    private fun updateTitleViewStyle() {
-        if (mTitleView != null) {
-            if (mSubTitleView == null || StringUtils.isNullOrEmpty(mSubTitleView!!.text)) {
-                mTitleView!!.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTitleTextSize.toFloat())
-            } else {
-                mTitleView!!.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTitleTextSizeWithSubTitle.toFloat())
-            }
-        }
-    }
-
-    /**
      * 添加 TopBar 的副标题
      *
      * @param subTitle TopBar 的副标题
@@ -249,6 +242,19 @@ open class TitleBar(context: Context?, attrs: AttributeSet?, defStyleAttr: Int =
         }
         // 更新 titleView 的样式（因为有没有 subTitle 会影响 titleView 的样式）
         updateTitleViewStyle()
+    }
+
+    /**
+     * 更新 titleView 的样式（因为有没有 subTitle 会影响 titleView 的样式）
+     */
+    private fun updateTitleViewStyle() {
+        if (mTitleView != null) {
+            if (mSubTitleView == null || StringUtils.isNullOrEmpty(mSubTitleView!!.text)) {
+                mTitleView!!.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTitleTextSize.toFloat())
+            } else {
+                mTitleView!!.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTitleTextSizeWithSubTitle.toFloat())
+            }
+        }
     }
 
     /**
@@ -329,7 +335,7 @@ open class TitleBar(context: Context?, attrs: AttributeSet?, defStyleAttr: Int =
      */
     private fun generateTitleContainerViewLp(): RelativeLayout.LayoutParams {
         return RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
-                DensityUtils.dp2px(context, ResourceUtils.getInteger(R.integer.titleBarHeight).toFloat()))
+                getDimension(ResourceUtils.getInteger(R.integer.titleBarHeight)))
     }
 
     /**
@@ -436,9 +442,9 @@ open class TitleBar(context: Context?, attrs: AttributeSet?, defStyleAttr: Int =
         val rightButton = generateTopBarImageButton(drawableResId)
         this.addRightView(rightButton, viewId, generateTopBarImageButtonLayoutParams())
         rightButton.setPadding(
-                DensityUtils.dp2px(context, ResourceUtils.getInteger(R.integer.defaultViewPadding).toFloat()),
+                getDimension(ResourceUtils.getInteger(R.integer.defaultViewPadding)),
                 0,
-                DensityUtils.dp2px(context, ResourceUtils.getInteger(R.integer.defaultViewPadding).toFloat()),
+                getDimension( ResourceUtils.getInteger(R.integer.defaultViewPadding)),
                 0)
         return rightButton
     }
@@ -454,9 +460,9 @@ open class TitleBar(context: Context?, attrs: AttributeSet?, defStyleAttr: Int =
         val leftButton = generateTopBarImageButton(drawableResId)
         this.addLeftView(leftButton, viewId, generateTopBarImageButtonLayoutParams())
         leftButton.setPadding(
-                DensityUtils.dp2px(context, ResourceUtils.getInteger(R.integer.defaultViewPadding).toFloat()),
+                getDimension( ResourceUtils.getInteger(R.integer.defaultViewPadding)),
                 0,
-                DensityUtils.dp2px(context, ResourceUtils.getInteger(R.integer.defaultViewPadding).toFloat()),
+                getDimension(ResourceUtils.getInteger(R.integer.defaultViewPadding)),
                 0)
         return leftButton
     }
@@ -603,7 +609,7 @@ open class TitleBar(context: Context?, attrs: AttributeSet?, defStyleAttr: Int =
 
     private fun getTopBarHeight(): Int {
         if (mTopbarHeight == -1) {
-            mTopbarHeight = DensityUtils.dp2px(context, ResourceUtils.getInteger(R.integer.titleBarHeight).toFloat())
+            mTopbarHeight = getDimension( ResourceUtils.getInteger(R.integer.titleBarHeight))
         }
         return mTopbarHeight
     }
