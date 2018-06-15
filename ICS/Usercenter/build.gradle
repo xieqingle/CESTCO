@@ -6,7 +6,14 @@ if (isUserModule.toBoolean()) {
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
+// 可以参考 module-kotlin 模块中的写法
+apply plugin: 'kotlin-kapt'
 
+kapt {
+    arguments {
+        arg("moduleName", project.getName())
+    }
+}
 
 androidExtensions {
     experimental = true
@@ -22,11 +29,11 @@ android {
         versionName versions.versionName
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [ moduleName : project.getName() ]
-            }
-        }
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments = [ moduleName : project.getName() ]
+//            }
+//        }
 
     }
 
@@ -65,7 +72,7 @@ dependencies {
     implementation project(':Providers')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     api "com.alibaba:arouter-api:$versions.ArouterVersion"
-    annotationProcessor "com.alibaba:arouter-compiler:$versions.aRouteCompilerVersion"
+    kapt  "com.alibaba:arouter-compiler:$versions.aRouteCompilerVersion"
 }
 repositories {
     mavenCentral()

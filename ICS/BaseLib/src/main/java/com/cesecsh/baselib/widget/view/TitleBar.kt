@@ -110,7 +110,7 @@ open class TitleBar(context: Context?, attrs: AttributeSet?, defStyleAttr: Int =
         mLeftBackDrawableRes = array.getResourceId(R.styleable.TitleBar_leftDrawableRes, R.mipmap.back)
         mTitleGravity = array.getInt(R.styleable.TitleBar_titleGravity, Gravity.CENTER)
         mTitleTextSize = array.getDimensionPixelSize(R.styleable.TitleBar_titleTextSize, DensityUtils.dp2px(getContext(), ResourceUtils.getInteger(R.integer.titleTextSize).toFloat()))
-        mTitleTextSizeWithSubTitle = array.getDimensionPixelSize(R.styleable.TitleBar_titleTextSize,DensityUtils.dp2px(getContext(), ResourceUtils.getInteger(R.integer.subTitleTextSize).toFloat()))
+        mTitleTextSizeWithSubTitle = array.getDimensionPixelSize(R.styleable.TitleBar_titleTextSize, DensityUtils.dp2px(getContext(), ResourceUtils.getInteger(R.integer.subTitleTextSize).toFloat()))
         mSubTitleTextSize = array.getDimensionPixelSize(R.styleable.TitleBar_subTitleTextSize, ResourceUtils.getInteger(R.integer.subTitleTextSize))
         mTitleTextColor = array.getColor(R.styleable.TitleBar_titleColor, Color.WHITE)
         mSubTitleTextColor = array.getColor(R.styleable.TitleBar_subTitleColor, Color.WHITE)
@@ -118,7 +118,7 @@ open class TitleBar(context: Context?, attrs: AttributeSet?, defStyleAttr: Int =
         mTitleContainerPaddingHor = array.getDimensionPixelSize(R.styleable.TitleBar_titleHorizontalPadding, 0)
         mTopBarImageBtnWidth = array.getDimensionPixelSize(R.styleable.TitleBar_imageViewWidth, DensityUtils.dp2px(getContext(), ResourceUtils.getInteger(R.integer.titleBarHeight).toFloat()))
         mTopBarImageBtnHeight = array.getDimensionPixelSize(R.styleable.TitleBar_imageViewHeight, DensityUtils.dp2px(getContext(), ResourceUtils.getInteger(R.integer.titleBarHeight).toFloat()))
-        mTopBarTextBtnPaddingHor = array.getDimensionPixelSize(R.styleable.TitleBar_textBtnHorizontalPadding,  DensityUtils.dp2px(getContext(), ResourceUtils.getInteger(R.integer.defaultViewPadding).toFloat()))
+        mTopBarTextBtnPaddingHor = array.getDimensionPixelSize(R.styleable.TitleBar_textBtnHorizontalPadding, DensityUtils.dp2px(getContext(), ResourceUtils.getInteger(R.integer.defaultViewPadding).toFloat()))
         mTopBarTextBtnTextColor = array.getColorStateList(R.styleable.TitleBar_textBtnTextColorStateList)
         mTopBarTextBtnTextSize = array.getDimensionPixelSize(R.styleable.TitleBar_textBtnTextSize, DensityUtils.dp2px(getContext(), ResourceUtils.getInteger(R.integer.subTitleTextSize).toFloat()))
 
@@ -172,7 +172,7 @@ open class TitleBar(context: Context?, attrs: AttributeSet?, defStyleAttr: Int =
      * @param title TopBar 的标题
      */
     fun setTitle(title: String): TextView {
-        val titleView = getTitleView(false)
+        val titleView = getTitleView()
         titleView.text = title
         if (StringUtils.isNullOrEmpty(title)) {
             titleView.visibility = View.GONE
@@ -189,7 +189,7 @@ open class TitleBar(context: Context?, attrs: AttributeSet?, defStyleAttr: Int =
     }
 
     fun setEmojiTitle(title: String): TextView {
-        val titleView = getTitleView(true)
+        val titleView = getTitleView()
         titleView.text = title
         if (StringUtils.isNullOrEmpty(title)) {
             titleView.visibility = View.GONE
@@ -205,7 +205,7 @@ open class TitleBar(context: Context?, attrs: AttributeSet?, defStyleAttr: Int =
         }
     }
 
-    private fun getTitleView(isEmoji: Boolean): TextView {
+    private fun getTitleView(): TextView {
         if (mTitleView == null) {
             //            mTitleView = isEmoji ? new EmojiconTextView(getContext()) : new TextView(getContext());
             mTitleView = TextView(context)
@@ -329,7 +329,7 @@ open class TitleBar(context: Context?, attrs: AttributeSet?, defStyleAttr: Int =
      */
     private fun generateTitleContainerViewLp(): RelativeLayout.LayoutParams {
         return RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
-                ResourceUtils.getInteger(R.integer.titleBarHeight))
+                DensityUtils.dp2px(context, ResourceUtils.getInteger(R.integer.titleBarHeight).toFloat()))
     }
 
     /**

@@ -64,7 +64,7 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), View.OnClickListe
         mBtnSubmit.enable(mEtPassword, { isBtnEnable() })
         mBtnSubmit.enable(mEtConfirmPassword, { isBtnEnable() })
         mBtnSubmit.enable(mEtVerification, { isBtnEnable() })
-        mBtnGetVerification.enable(mEtPhone, { isGetVerificationBtnEnable() })
+        mBtnGetVerification.enable(mEtPhone) { isGetVerificationBtnEnable() }
         mBtnGetVerification.isEnableByPhone(mEtPhone)
         mBtnShowPassword.tarnsPasswordVisible(mEtPassword)
         mBtnShowConfirmPassword.tarnsPasswordVisible(mEtConfirmPassword)

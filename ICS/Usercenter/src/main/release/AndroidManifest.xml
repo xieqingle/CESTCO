@@ -9,9 +9,17 @@
         android:allowBackup="true"
         android:label="@string/app_name"
         android:supportsRtl="true">
-        <activity android:name=".ui.activity.LoginActivity"/>
-        <activity android:name=".ui.activity.RegisterActivity"/>
-        <activity android:name=".ui.activity.RetrievePasswordActivity"/>
-        <activity android:name="com.cesecsh.baselib.ui.activity.WebViewActivity"/>
+        <activity
+            android:name=".ui.activity.LoginActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity
+            android:name=".ui.activity.RegisterActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity
+            android:name=".ui.activity.RetrievePasswordActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity
+            android:name="com.cesecsh.baselib.ui.activity.WebViewActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
     </application>
 </manifest>

@@ -2,6 +2,7 @@ package com.cesecsh.usercenter.ui.activity
 
 import android.os.Bundle
 import android.view.View
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.cesecsh.baselib.common.BaseConstant
 import com.cesecsh.baselib.ext.enable
@@ -9,6 +10,7 @@ import com.cesecsh.baselib.ext.tarnsPasswordVisible
 import com.cesecsh.baselib.ui.base.BaseMvpActivity
 import com.cesecsh.baselib.utils.RegularUtils
 import com.cesecsh.baselib.utils.ScreenFitUtils
+import com.cesecsh.usercenter.LOGIN_SUCCESS
 import com.cesecsh.usercenter.R
 import com.cesecsh.usercenter.data.protocol.User
 import com.cesecsh.usercenter.presenter.LoginPresenter
@@ -21,6 +23,7 @@ import org.jetbrains.anko.toast
  * 作者：RockQ on 2018/6/11
  * 邮箱：qingle6616@sina.com
  */
+@Route(path = BaseConstant.PATH_LOGIN)
 class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClickListener {
 
     override fun onClick(v: View?) {
@@ -43,9 +46,10 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
 
 
     override fun showLoginResult(user: User) {
-        ARouter.getInstance().build(BaseConstant.MAIN_PATH)
-                .withBoolean("login", true)
+        ARouter.getInstance().build(BaseConstant.PATH_MAIN)
+                .withBoolean(LOGIN_SUCCESS, true)
                 .navigation()
+        finish()
 
     }
 
@@ -58,8 +62,8 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         ScreenFitUtils.auto(this)
-        mBtnLogin.enable(mEtPhone, { isBtnEnable() })
-        mBtnLogin.enable(mEtPassword, { isBtnEnable() })
+        mBtnLogin.enable(mEtPhone) { isBtnEnable() }
+        mBtnLogin.enable(mEtPassword) { isBtnEnable() }
         mBtnShowPassword.tarnsPasswordVisible(mEtPassword)
         mBtnLogin.setOnClickListener(this)
         mBtnSignIn.setOnClickListener(this)

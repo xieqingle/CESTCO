@@ -14,3 +14,7 @@ const val USER_INFO: String = "user_info"
  * 是否登陆
  */
 const val IS_LOGIN: String = "isLogin"
+/**
+ * 登陆成功
+ */
+const val LOGIN_SUCCESS = "login"
