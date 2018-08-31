@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@mipmap/bg_login"
+    >
+
+    <ImageView
+        android:id="@+id/activity_login_login_icon"
+        android:layout_width="118dp"
+        android:layout_height="118dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:src="@mipmap/login_logo"/>
+
+    <FrameLayout
+        android:id="@+id/fl_login_username"
+        android:layout_above="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="47dp"
+        android:layout_marginRight="47dp"
+        android:layout_marginTop="143dp">
+
+        <ImageView
+            android:id="@+id/iv_username"
+            android:layout_width="18dp"
+            android:layout_height="22dp"
+            android:layout_gravity="left|bottom"
+            android:layout_marginBottom="15dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/account"/>
+
+        <EditText
+            android:id="@+id/mEtPhone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:gravity="left|center"
+            android:hint="@string/input_phonenumber"
+            android:inputType="phone"
+            android:maxLength="11"
+            android:paddingBottom="15dp"
+            android:paddingLeft="40dp"
+            android:paddingTop="25dp"
+            android:textColor="@color/normalColor"
+            android:textColorHint="#80161616"
+            android:textSize="15sp"
+            />
+
+
+    </FrameLayout>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_above="@+id/fl_login_password"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="77dp"
+        android:layout_marginRight="47dp"
+        android:background="#b5bfc9"/>
+
+    <FrameLayout
+        android:id="@+id/fl_login_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/view2"
+        android:layout_marginLeft="47dp"
+        android:layout_marginRight="47dp"
+        >
+
+        <ImageView
+            android:id="@+id/iv_password"
+            android:layout_width="18dp"
+            android:layout_height="22dp"
+            android:layout_gravity="left|bottom"
+            android:layout_marginBottom="15dp"
+            android:src="@mipmap/password"/>
+
+        <Button
+            android:id="@+id/mBtnShowPassword"
+            android:layout_width="40px"
+            android:layout_height="40px"
+            android:layout_gravity="right|bottom"
+            android:layout_marginBottom="23px"
+            android:background="@mipmap/password_hide"
+            android:visibility="gone"
+            />
+
+
+        <EditText
+            android:id="@+id/mEtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:paddingBottom="15dp"
+            android:paddingLeft="40dp"
+            android:paddingTop="25dp"
+            android:textColor="@color/normalColor"
+            android:textColorHint="#80161616"
+            android:textSize="15sp"
+            />
+    </FrameLayout>
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_above="@+id/mBtnLogin"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="77dp"
+        android:layout_marginRight="47dp"
+        android:background="#b5bfc9"/>
+
+    <com.cesecsh.baselib.widget.view.alpha.AlphaButton
+        android:id="@+id/mBtnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="82dp"
+        android:layout_marginLeft="47dp"
+        android:layout_marginRight="47dp"
+        android:layout_marginTop="58dp"
+        android:background="@mipmap/bg_btn_login"
+        android:enabled="false"
+        android:gravity="center"
+        android:text="@string/login"
+        android:textColor="@color/white"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/mBtnSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:layout_below="@+id/mBtnLogin"
+        android:layout_marginLeft="47dp"
+        android:layout_marginRight="47dp"
+        android:layout_marginTop="62px"
+        android:background="@drawable/btn_ontime_register"
+        android:text="@string/login_activity_sign_in"
+        android:textColor="@color/white"
+        android:textSize="32px"
+        android:visibility="gone"/>
+
+    <com.cesecsh.baselib.widget.view.alpha.AlphaTextView
+        android:id="@+id/tvForgetPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="forgetPassword"
+        android:padding="28px"
+        android:text="@string/login_activity_forget_password"
+        android:textColor="@color/white"
+        android:textSize="28px"
+        android:visibility="gone"/>
+
+</RelativeLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="translateTheme" parent="AppTheme">
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <!--<item name="drawerArrowStyle">@style/DrawerArrowStyle</item>//set the title color，设置toolbar标题颜色-->
+    </style>
+    <!--<item name="android:windowTranslucentStatus">true</item>-->
+    <!--<item name="android:windowTranslucentNavigation">false</item>-->
+    <!--&lt;!&ndash; v-21 中新增的属性 &ndash;&gt;-->
+    <!--<item name="android:statusBarColor">@android:color/transparent</item>-->
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">false</item>//true就会有旋转动画，false就不会有旋转动画
+        <item name="color">@android:color/white</item>//默认是黑色，这里设置为白色
+    </style>
+    <!--<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">-->
+        <!--&lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+        <!--<item name="android:windowDrawsSystemBarBackgrounds">true</item>-->
+        <!--<item name="android:statusBarColor">@android:color/transparent</item>-->
+        <!--<item name="drawerArrowStyle">@style/DrawerArrowStyle</item>//set the title color，设置toolbar标题颜色-->
+    <!--</style>-->
+</resources>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+
+        android:id="@+id/mToolBar"
+        style="@style/toolBarStyle">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/entrance_control_system"
+            android:textColor="@color/white"
+            android:textSize="34px"/>
+
+        <com.cesecsh.baselib.widget.view.alpha.AlphaTextView
+            android:id="@+id/mAuthorizationVisitor"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:paddingBottom="26px"
+            android:paddingLeft="26px"
+            android:paddingRight="26px"
+            android:paddingTop="26px"
+            android:text="@string/authorization_visitor"
+            android:textColor="@color/white"
+            android:textSize="26px"/>
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/mDlMenus"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <com.cesecsh.baselib.widget.statusLayout.StatusFrameLayout
+            android:id="@+id/mSflRoot"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/mVpEntranceControls"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                </android.support.v4.view.ViewPager>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="100px">
+
+                    <TextView
+                        android:id="@+id/mTvBluetooth"
+                        android:layout_width="200px"
+                        android:layout_height="200px"
+                        android:layout_weight="1"
+                        android:drawablePadding="20px"
+                        android:drawableTop="@mipmap/bluetooth"
+                        android:gravity="center"
+                        android:padding="28px"
+                        android:text="@string/shark"
+                        android:textSize="32px"/>
+
+                    <View
+                        android:id="@+id/view3"
+                        android:layout_width="0.3dp"
+                        android:layout_height="200px"
+                        android:background="#e1e1e1"
+                        app:layout_constraintBottom_toBottomOf="@+id/mTvQrCode"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        />
+
+                    <TextView
+                        android:id="@+id/mTvQrCode"
+                        android:layout_width="200px"
+                        android:layout_height="200px"
+                        android:layout_weight="1"
+                        android:drawablePadding="20px"
+                        android:drawableTop="@mipmap/qrcode"
+                        android:gravity="center"
+                        android:padding="28px"
+                        android:text="@string/qrCode"
+                        android:textSize="32px"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.cesecsh.baselib.widget.statusLayout.StatusFrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/mRvDoors"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                />
+
+            <View
+                style="@style/dividerHorizontalStyle"/>
+
+            <com.cesecsh.baselib.widget.view.alpha.AlphaTextView
+                android:id="@+id/mTvLoginOut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="26px"
+                android:paddingTop="26px"
+                android:text="@string/login_out"
+                android:textColor="@color/normalColor"
+                android:textSize="32px"/>
+        </LinearLayout>
+
+
+    </android.support.v4.widget.DrawerLayout>
+</LinearLayout>

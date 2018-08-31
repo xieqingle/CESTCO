@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">966门禁</string>
+    <string name="entrance_control_system">门禁管理系统</string>
+    <string name="authorization_visitor">访客授权</string>
+    <string name="open">打开</string>
+    <string name="close">关闭</string>
+    <string name="get_two_dimensional_code">生成二维码</string>
+    <string name="please_input_author_name">请输入访客名称</string>
+    <string name="shark">摇一摇</string>
+    <string name="qrCode">二维码</string>
+    <string name="shark_open_door">摇一摇开门</string>
+    <string name="scan_open_door">扫一扫开门</string>
+    <string name="toast_bluetooth_open_failure">蓝牙未开启，无法使用摇一摇开门</string>
+    <string name="toast_bluetooth_open">蓝牙已开启</string>
+    <string name="please_select_address">请选择地址</string>
+    <string name="entrance_control_select">门禁选择</string>
+    <string name="submit">提交</string>
+    <string name="address">地址</string>
+    <string name="arrive_time">到访时间</string>
+    <string name="visitor">访客</string>
+    <string name="toast_entrance_control_author">注：您所选择的前后30分钟都有效</string>
+    <string name="search">搜索</string>
+    <string name="visit_aim">来访目的</string>
+    <string name="please_select_visit_aim">请选择来访目的</string>
+    <string name="please_input_visit_aim">请输入来访目的</string>
+    <string name="please_input_visitor_phone">请输入访客手机号码</string>
+    <string name="phone">手机号码</string>
+    <string name="device_not_support_ble">你的设备不具备蓝牙功能!</string>
+    <string name="search_ble_need_access_location">只有允许访问位置才能搜索到蓝牙设备</string>
+    <string name="refreshing">正在刷新</string>
+    <string name="debug_mode">调试模式</string>
+    <string name="login_out">退出登陆</string>
+    <string name="exit_app_if_double_back">再次按返回退出</string>
+    <string name="login_out_confirm">是否退出登陆？</string>
+    <string name="cancel">取消</string>
+    <string name="exit">退出</string>
+</resources>

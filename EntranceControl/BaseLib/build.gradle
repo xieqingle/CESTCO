@@ -1,0 +1,218 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+
+//apply plugin: 'kotlin-kapt'
+//apply plugin: 'com.novoda.bintray-release'
+//apply plugin: 'kotlin-kapt'
+//apply plugin: 'org.greenrobot.greendao'
+
+//publish {
+//    userOrg = 'qinglex'//bintray.com用户名
+//    groupId = 'com.rockq'//jcenter上的路径
+//    artifactId = 'baslib'//项目名称
+//    publishVersion = '1.0.0'//版本号
+//    desc = 'android 开发基础类库'//描述，不重要
+//    website = 'https://github.com/SugerQ'//网站，最好有，不重要
+//}
+
+//添加 kotlin parcelable 注释快捷方法
+androidExtensions {
+    experimental = true
+}
+
+
+android {
+
+
+    compileSdkVersion versions.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion versions.minSdkVersion
+        targetSdkVersion versions.targetSdkVersion
+        versionCode versions.versionCode
+        versionName versions.versionName
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+//greendao {
+//    //数据库的schema版本，也可以理解为数据库版本号
+//    schemaVersion 1
+//    //设置DaoMaster、DaoSession、Dao包名，也就是要放置这些类的包的全路径。
+//    daoPackage 'com.cesecsh.baselib.greendao'
+//    //设置DaoMaster、DaoSession、Dao目录
+//    targetGenDir 'src/main/java'
+//}
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //noinspection GradleCompatible
+    implementation "com.android.support:appcompat-v7:$versions.support"
+    testImplementation "junit:junit:$versions.junitVersion"
+    androidTestImplementation "com.android.support.test:runner:$versions.runnerVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$versions.espressoVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    api "com.android.support:design:$versions.support"
+
+    //Rxjava
+    api "io.reactivex.rxjava2:rxkotlin:$versions.rxKotlin"
+    api "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid"
+
+    //okhttp && retrofit
+    implementation "com.squareup.retrofit2:retrofit:$versions.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$versions.retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofitVersion"
+    api "com.squareup.okhttp3:okhttp:$versions.okHttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$versions.okHttpVersion"
+    api "org.jetbrains.anko:anko-commons:$versions.ankoVersion"
+
+//    Logger
+    implementation "com.orhanobut:logger:$versions.loggerVersion"
+
+    //    // room
+
+    //    api "android.arch.persistence.room:runtime:$versions.roomVersion"
+
+    //    annotationProcessor "android.arch.persistence.room:compiler:$versions.roomVersion"
+
+    //    kapt "android.arch.persistence.room:compiler:$versions.roomVersion"
+
+    //    // optional - RxJava support for Room
+
+    //    api "android.arch.persistence.room:rxjava2:$versions.roomVersion"
+
+    //    api "org.greenrobot:greendao:$rootProject.greendao"
+
+    //RxLifecycle
+    api "com.trello.rxlifecycle2:rxlifecycle-kotlin:$versions.rxLifecycleVersion"
+
+    //If you want pre-written Activities and Fragments you can subclass as providers
+    api "com.trello.rxlifecycle2:rxlifecycle-components:$versions.rxLifecycleVersion"
+
+    //alibaba Aroute
+    api "com.alibaba:arouter-api:$versions.ArouterVersion"
+
+    api "com.contrarywind:Android-PickerView:$versions.pickView"
+
+    api "org.greenrobot:eventbus:$versions.eventBus"
+
+    api "com.scwang.smartrefresh:SmartRefreshLayout:$versions.smartRefresh"
+
+    api "com.github.bumptech.glide:glide:$versions.glideVersion"
+
+    api "com.qmuiteam:qmui:$versions.qmuiVersion"
+//    kapt  "com.github.bumptech.glide:compiler:$versions.glideVersion"
+}
+
+/** 以下开始是将Android Library上传到jcenter的相关配置**/
+
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+//项目主页
+def siteUrl = 'https://github.com/SugerQ/CESTCO'    // project homepage
+//项目的版本控制地址
+def gitUrl = 'https://github.com/SugerQ/CESTCO.git' // project git
+
+//发布到组织名称名字，必须填写
+group = "cn.cestco.rockq"
+//发布到JCenter上的项目名字，必须填写
+def libName = "baselib"
+// 版本号，下次更新是只需要更改版本号即可
+version = "1.0.1"
+/**  上面配置后上传至jcenter后的编译路径是这样的： compile 'cn.bluemobi.dylan:sqlitelibrary:1.0'  **/
+
+//生成源文件
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+//生成文档
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    options.encoding "UTF-8"
+    options.charSet 'UTF-8'
+    options.author true
+    options.version true
+    options.links "https://github.com/linglongxin24/FastDev/tree/master/mylibrary/docs/javadoc"
+    failOnError false
+}
+
+//文档打包成jar
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+//拷贝javadoc文件
+task copyDoc(type: Copy) {
+    from "${buildDir}/docs/"
+    into "docs"
+}
+
+//上传到jcenter所需要的源码文件
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+// 配置maven库，生成POM.xml文件
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom {
+            project {
+                packaging 'aar'
+                name 'This is a lightweight SQLite database framework'
+                url siteUrl
+                licenses {
+                    license {
+                        name 'this is lib of company cestco '
+                        url 'https://github.com/SugerQ/CESTCO'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'xieqlx'
+                        name 'xieqlx'
+                        email 'xieqlx@gmail.com'
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+                }
+            }
+        }
+    }
+}
+
+//上传到jcenter
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+bintray {
+    user = properties.getProperty("bintray.user")    //读取 local.properties 文件里面的 bintray.user
+    key = properties.getProperty("bintray.apikey")   //读取 local.properties 文件里面的 bintray.apikey
+    configurations = ['archives']
+    pkg {
+        repo = "maven"
+        name = libName    //发布到JCenter上的项目名字，必须填写
+        desc = 'this is lib of company cestco '    //项目描述
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = ["Apache-2.0"]
+        publish = true
+    }
+}

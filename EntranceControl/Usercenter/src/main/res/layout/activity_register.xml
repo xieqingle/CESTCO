@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context=".ui.activity.RegisterActivity">
+
+    <com.cesecsh.baselib.widget.view.TitleBar
+        android:id="@+id/mTitleBar"
+        style="@style/titleBarStyle"/>
+
+    <FrameLayout
+        android:id="@+id/fl_login_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="68px"
+        android:layout_marginRight="68px"
+        android:layout_marginTop="50dp">
+
+        <ImageView
+            android:id="@+id/iv_username"
+            android:layout_width="52px"
+            android:layout_height="52px"
+            android:layout_gravity="left|bottom"
+            android:layout_marginBottom="28px"
+            android:src="@mipmap/register_account"/>
+
+        <EditText
+            android:id="@+id/mEtPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="@string/input_phonenumber"
+            android:inputType="phone"
+            android:maxLength="11"
+            android:paddingBottom="28px"
+            android:paddingLeft="30dp"
+            android:paddingTop="68px"
+            android:textColor="@color/text_normal"
+            android:textColorHint="@color/text_normal"
+            android:textSize="32px"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_gravity="bottom"
+            android:background="@color/register_line"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_login_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fl_login_username"
+        android:layout_marginLeft="68px"
+        android:layout_marginRight="68px">
+
+        <ImageView
+            android:id="@+id/iv_password"
+            android:layout_width="52px"
+            android:layout_height="52px"
+            android:layout_gravity="left|bottom"
+            android:layout_marginBottom="28px"
+            android:src="@mipmap/register_password"/>
+
+        <Button
+            android:id="@+id/mBtnShowPassword"
+            android:layout_width="52px"
+            android:layout_height="52px"
+            android:layout_gravity="right|bottom"
+            android:layout_marginBottom="28px"
+            android:background="@mipmap/register_unsee"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_gravity="bottom"
+            android:background="@color/register_line"/>
+
+        <EditText
+            android:id="@+id/mEtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:paddingBottom="28px"
+            android:paddingLeft="30dp"
+            android:paddingTop="68px"
+            android:textColor="@color/text_normal"
+            android:textColorHint="@color/text_normal"
+            android:textSize="32px"
+            />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_register_again_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="68px"
+        android:layout_marginRight="68px">
+
+        <ImageView
+            android:id="@+id/iv_confirm_password"
+            android:layout_width="52px"
+            android:layout_height="52px"
+            android:layout_gravity="left|bottom"
+            android:layout_marginBottom="28px"
+            android:src="@mipmap/register_password"/>
+
+        <Button
+            android:id="@+id/mBtnShowConfirmPassword"
+            android:layout_width="52px"
+            android:layout_height="52px"
+            android:layout_gravity="right|bottom"
+            android:layout_marginBottom="28px"
+            android:background="@mipmap/register_unsee"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="10dp"
+            android:background="@color/register_line"/>
+
+        <EditText
+            android:id="@+id/mEtConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="@string/input_confirm_password"
+            android:inputType="textPassword"
+            android:paddingBottom="28px"
+            android:paddingLeft="30dp"
+            android:paddingTop="68px"
+            android:textColor="@color/text_normal"
+            android:textColorHint="@color/text_normal"
+
+            android:textSize="32px"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_get_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="68px"
+        android:layout_marginRight="68px"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <EditText
+            android:id="@+id/mEtVerification"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:hint="@string/hint_input_verification"
+            android:inputType="number"
+            android:maxLength="6"
+            android:textColorHint="@color/text_normal"
+            android:textSize="32px"/>
+
+        <com.cesecsh.baselib.widget.view.alpha.AlphaButton
+            android:id="@+id/mBtnGetVerification"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="178px"
+            android:layout_height="56px"
+            android:layout_gravity="right"
+            android:layout_marginBottom="26px"
+            android:layout_marginTop="66px"
+            android:background="@drawable/selector_get_verification"
+            android:enabled="false"
+            android:gravity="center"
+            android:text="@string/sign_in_get_verification"
+            android:textColor="@drawable/selector_text_red2white"
+            android:textSize="28px"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="10dp"
+            android:background="@color/register_line"/>
+    </FrameLayout>
+
+    <com.cesecsh.baselib.widget.view.alpha.AlphaButton
+        android:id="@+id/mBtnSubmit"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="68px"
+        android:layout_marginRight="68px"
+        android:layout_marginTop="74px"
+        android:background="@drawable/selector_btn_red2color_primary"
+        android:enabled="false"
+        android:text="@string/submit"
+        android:textColor="@drawable/selector_text_white2red"
+        android:textSize="34px"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="98px"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_prompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/hint_submit"
+            android:textColor="@color/text_normal"
+            android:textSize="28px"/>
+
+        <com.cesecsh.baselib.widget.view.alpha.AlphaTextView
+            android:id="@+id/mTvProtocol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/user_agreements"
+            android:textColor="@color/colorPrimary"
+            android:textSize="28px"/>
+    </LinearLayout>
+</LinearLayout>

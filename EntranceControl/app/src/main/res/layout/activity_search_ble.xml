@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.cesecsh.ics.ui.activity.ble.SearchBleActivity">
+
+    <!--<android.support.v7.widget.Toolbar-->
+        <!--android:id="@+id/mToolBar"-->
+        <!--style="@style/toolBarStyle">-->
+
+        <com.cesecsh.baselib.widget.view.TitleBar
+            android:id="@+id/mTitleBar"
+            style="@style/titleBarStyle"
+            />
+
+
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:text="@string/debug_mode"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:textSize="34px"/>-->
+
+        <!--<com.cesecsh.baselib.widget.view.alpha.AlphaTextView-->
+        <!--android:id="@+id/mAuthorizationVisitor"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_gravity="right"-->
+        <!--android:paddingBottom="26px"-->
+        <!--android:paddingLeft="26px"-->
+        <!--android:paddingRight="26px"-->
+        <!--android:paddingTop="26px"-->
+        <!--android:text="@string/search"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:textSize="26px"/>-->
+    <!--</android.support.v7.widget.Toolbar>-->
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/mSmartRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/mRvDevice"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+</LinearLayout>

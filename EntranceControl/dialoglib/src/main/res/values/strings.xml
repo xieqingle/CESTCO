@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">dialogLib</string>
+    <string name="loading">正在加载</string>
+    <string name="operate_failure">操作失败</string>
+    <string name="operate_success">操作成功</string>
+    <string name="pleace_not_repeat_operate">请勿重复操作</string>
+
+    <!-- 零宽空格，用于修复小米等系统对字符的缩略错误 -->
+    <string name="qmui_tool_fixellipsize">\u200b</string>
+</resources>

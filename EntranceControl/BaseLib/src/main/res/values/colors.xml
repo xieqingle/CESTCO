@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#24a2e0</color>
+    <color name="colorPrimaryDark">#24a2e0</color>
+    <color name="colorAccent">#24a2e0</color>
+    <color name="common_bg">#f5f5f5</color>
+    <color name="white">#ffffff</color>
+
+    <color name="separatorColor">#DEE0E2</color>
+
+    <color name="colorTransparent">#00000000</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="color75White">#C0FFFFFF</color>
+    <color name="color50White">#80FFFFFF</color>
+    <color name="color25White">#40FFFFFF</color>
+    <color name="color15White">#26FFFFFF</color>
+    <color name="color10White">#19FFFFFF</color>
+
+    <color name="colorBlack">#000000</color>
+    <color name="color75Black">#C0000000</color>
+    <color name="color60Black">#99000000</color>
+    <color name="color50Black">#80000000</color>
+    <color name="color25Black">#40000000</color>
+    <color name="color15Black">#26000000</color>
+    <color name="color10Black">#19000000</color>
+
+    <color name="normalColor">#484848</color>
+    <color name="hintColor">#777477</color>
+    <color name="lineColor">#e0e0e0</color>
+    <color name="warningColor">#df3031</color>
+</resources>

@@ -1,0 +1,24 @@
+package com.cesecsh.ics.ble
+
+/**
+ * 作者：RockQ on 2018/7/24
+ * 邮箱：qingle6616@sina.com
+ *
+ * msg：
+ */
+object BleStatus {
+
+    const val STATE_DISCONNECTED = 0
+    const val STATE_CONNECTING = 1
+    const val STATE_CONNECTED = 2
+    const val STATE_DISCONNECTING = 3
+
+    
+    const val ACTION_GATT_DISCONNECTED = "ACTION_GATT_DISCONNECTED"
+    const val ACTION_GATT_CONNECTING = "ACTION_GATT_CONNECTING"
+    const val ACTION_GATT_CONNECTED = "ACTION_GATT_CONNECTED"
+    const val ACTION_GATT_DISCONNECTING = "ACTION_GATT_DISCONNECTING"
+    const val ACTION_GATT_SERVICES_DISCOVERED = "ACTION_GATT_SERVICES_DISCOVERED"
+    const val ACTION_BLUETOOTH_DEVICE = "ACTION_BLUETOOTH_DEVICE"
+    const val ACTION_SCAN_FINISHED = "ACTION_SCAN_FINISHED"
+}

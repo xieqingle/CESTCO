@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="leftViewId" type="id"/>
+    <item name="titleViewId" type="id"/>
+    <item name="rightViewId" type="id"/>
+    <item name="subTitleViewId" type="id"/>
+    <item name="leftIconViewId" type="id"/>
+    <item name="rightIconViewId" type="id"/>
+</resources>

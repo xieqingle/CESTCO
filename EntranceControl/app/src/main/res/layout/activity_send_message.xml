@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.cesecsh.ics.ui.activity.ble.SendMessageActivity">
+
+    <com.cesecsh.baselib.widget.view.TitleBar
+        android:id="@+id/mTitleBar"
+        style="@style/titleBarStyle"
+        />
+
+
+    <TextView
+        android:id="@+id/mTvStatus"
+        style="@style/normalTextStyle"
+        android:layout_marginTop="28px"
+        android:text="状态：连接中……"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mTitleBar"/>
+
+    <TextView
+        android:id="@+id/mTvReceiveMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left|top"
+        android:maxLines="15"
+        android:padding="28px"
+        android:scrollbars="vertical"
+        android:textSize="26px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mTvStatus"
+        tools:text="消息："/>
+
+    <Button
+        android:id="@+id/mBtnSend"
+        style="@style/normalTextStyle"
+        android:gravity="center"
+        android:text="发送消息"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mTvReceiveMessage"/>
+
+</android.support.constraint.ConstraintLayout>

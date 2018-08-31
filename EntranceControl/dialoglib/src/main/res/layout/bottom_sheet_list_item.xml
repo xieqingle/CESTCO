@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/list_item_bg_with_border_bottom"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+    <ImageView
+        android:id="@+id/bottom_dialog_list_item_img"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginRight="12dp"
+        android:contentDescription="Item icon"
+        android:scaleType="centerInside"/>
+
+    <TextView
+        android:id="@+id/bottom_dialog_list_item_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/bottom_dialog_list_item_img"
+        android:ellipsize="middle"
+        android:singleLine="true"
+        android:textColor="@color/normalColor"
+        android:textSize="15sp"
+        />
+    <!--android:textAppearance="?attr/qmui_bottom_sheet_list_item_text_appearance"-->
+    <ImageView
+        android:id="@+id/bottom_dialog_list_item_point"
+        android:layout_width="8dp"
+        android:layout_height="8dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="4dp"
+        android:layout_toRightOf="@+id/bottom_dialog_list_item_title"
+        android:background="@drawable/tips_point"
+        android:contentDescription="Tips dot"
+        android:scaleType="fitXY"
+        android:visibility="gone"/>
+
+
+    <ViewStub
+        android:id="@+id/bottom_dialog_list_item_mark_view_stub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/bottom_dialog_list_item_point"
+        android:layout="@layout/bottom_sheet_list_item_mark"/>
+</RelativeLayout>

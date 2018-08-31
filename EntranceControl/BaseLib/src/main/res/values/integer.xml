@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--titleBar数值-->
+    <integer name="titleBarHeight">88</integer>
+    <integer name="titleTextSize">34</integer>
+    <integer name="subTitleTextSize">26</integer>
+    <integer name="subTitleMarginTop">5</integer>
+    <integer name="defaultViewPadding">20</integer>
+    <!--普通字体数值-->
+    <integer name="text_indicator_size">30</integer>
+    <integer name="text_msg_hint_size">20</integer>
+    <integer name="text_hint_size">24</integer>
+    <integer name="text_content_normal_size">26</integer>
+    <integer name="text_content_big_size">28</integer>
+    <integer name="text_title_size">30</integer>
+    <integer name="text_title_big_size">32</integer>
+    <integer name="text_super_big_size">40</integer>
+    <!--dialog字体设置-->
+    <integer name="dialog_title_size">28</integer>
+    <integer name="dialog_content_size">24</integer>
+    <integer name="dialog_confirm_size">28</integer>
+    <!--标签栏字体设计-->
+    <integer name="label_text_size">22</integer>
+
+
+    <!--基本资料-->
+    <integer name="basic_msg_content_padding">28</integer>
+    <integer name="basic_msg_title_padding">24</integer>
+</resources>

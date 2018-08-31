@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.cesecsh.ics.ui.activity.entrance.AuthorizationVisitorActivity">
+
+    <!--<android.support.v7.widget.Toolbar-->
+        <!--android:id="@+id/mToolBar"-->
+        <!--style="@style/toolBarStyle">-->
+
+        <com.cesecsh.baselib.widget.view.TitleBar
+            android:id="@+id/mTitleBar"
+            style="@style/titleBarStyle"
+            />
+    <!--</android.support.v7.widget.Toolbar>-->
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/mLlAddressName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="28px"
+                    android:text="@string/address"
+                    android:textColor="@color/normalColor"
+                    android:textSize="30px"/>
+
+                <TextView
+                    android:id="@+id/mTvAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableEnd="@mipmap/icon_gray_arrow_right"
+                    android:drawablePadding="16px"
+                    android:drawableRight="@mipmap/icon_gray_arrow_right"
+                    android:gravity="right"
+                    android:padding="28px"
+                    android:textColor="@color/hintColor"
+                    android:textSize="30px"
+                    tools:text="振华社区1幢1单元"/>
+            </LinearLayout>
+
+            <com.cesecsh.baselib.widget.view.MultiView
+                android:id="@+id/mMvAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:mLeftIconVisible="gone"
+                app:mLeftText="地址"
+                app:mLeftTextPadding="28px"
+                app:mLeftTextSize="30px"
+                app:mRightIconVisible="gone"
+                app:mRightText="上海中电20楼大门"
+                app:mRightTextPadding="28px"
+                app:mRightTextSize="28px"/>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.3dp"
+                android:background="@color/lineColor"
+                />
+
+            <LinearLayout
+                android:id="@+id/mLlAuthorTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="28px"
+                    android:text="@string/arrive_time"
+                    android:textColor="@color/normalColor"
+                    android:textSize="30px"/>
+
+                <TextView
+                    android:id="@+id/mTvAuthorArriveTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:gravity="right"
+                    android:lines="1"
+                    android:padding="28px"
+                    android:textColor="@color/hintColor"
+                    android:textSize="30px"
+                    tools:text="2018-08-20 14:30:00"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.3dp"
+                android:background="@color/lineColor"
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="28px"
+                    android:text="@string/visitor"
+                    android:textColor="@color/normalColor"
+                    android:textSize="30px"/>
+
+                <EditText
+                    android:id="@+id/mEtAuthorName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:ellipsize="end"
+                    android:gravity="right"
+                    android:hint="@string/please_input_author_name"
+                    android:lines="1"
+                    android:padding="28px"
+                    android:textSize="30px"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.3dp"
+                android:background="@color/lineColor"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="28px"
+                    android:text="@string/phone"
+                    android:textColor="@color/normalColor"
+                    android:textSize="30px"/>
+
+                <EditText
+                    android:id="@+id/mEtPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:ellipsize="end"
+                    android:gravity="right"
+                    android:hint="@string/please_input_visitor_phone"
+                    android:inputType="phone"
+                    android:lines="1"
+                    android:padding="28px"
+                    android:textSize="30px"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.3dp"
+                android:background="@color/lineColor"
+                />
+
+            <com.cesecsh.baselib.widget.view.MultiView
+                android:id="@+id/mMvVisitAim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:mLeftIconVisible="gone"
+                app:mLeftText="@string/visit_aim"
+                app:mLeftTextGravity="left"
+                app:mLeftTextPadding="28px"
+                app:mLeftTextSize="30px"
+                app:mRightIconSrc="@mipmap/icon_gray_arrow_right"
+                app:mRightText="@string/please_select_visit_aim"
+                app:mRightTextPaddingBottom="28px"
+                app:mRightTextPaddingLeft="1px"
+                app:mRightTextPaddingRight="1px"
+                app:mRightTextPaddingTop="28px"
+                app:mRightTextSize="28px"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.3dp"
+                android:background="@color/lineColor"
+                />
+
+            <EditText
+                android:id="@+id/mEtVisitAim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_edit_text_bg_normal"
+                android:gravity="left"
+                android:hint="@string/please_input_visit_aim"
+                android:inputType="text"
+                android:padding="28px"
+                android:textSize="30px"
+                android:visibility="gone"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:padding="28px"
+                android:text="@string/toast_entrance_control_author"
+                android:textColor="@color/warningColor"
+                android:textSize="26px"/>
+
+            <com.cesecsh.baselib.widget.view.alpha.AlphaButton
+                android:id="@+id/mBtnGetQrCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="100px"
+                android:layout_marginLeft="28px"
+                android:layout_marginRight="28px"
+                android:layout_marginTop="100px"
+                android:background="@drawable/selector_btn_red2color_primary"
+                android:enabled="false"
+                android:gravity="center"
+                android:onClick="getQRCode"
+                android:paddingBottom="28px"
+                android:paddingTop="28px"
+                android:text="@string/get_two_dimensional_code"
+                android:textColor="@drawable/selector_text_white2red"
+                android:textSize="32px"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

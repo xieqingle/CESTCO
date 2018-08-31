@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#fff</color>
+    <color name="white_50">#7fffffff</color>
+    <color name="text_normal">#464646</color>
+    <color name="register_line">#c3c3c3</color>
+</resources>

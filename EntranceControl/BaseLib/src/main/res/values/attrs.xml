@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--************ QMUITopBar ***********-->
+    <declare-styleable name="TitleBar">
+        <attr name="titleGravity" format="enum">
+            <enum name="left_center" value="19"/>
+            <enum name="center" value="17"/>
+        </attr>
+        <attr name="isAutoFit" format="boolean"/>
+        <attr name="needSeparator" format="boolean"/>
+        <attr name="separatorColor" format="color"/>
+        <attr name="separatorHeight" format="dimension"/>
+        <attr name="backgroundColor" format="color"/>
+        <attr name="leftDrawableRes" format="reference"/>
+        <attr name="titleTextSize" format="dimension"/>
+        <attr name="qmui_topbar_title_text_size_with_subtitle" format="dimension"/>
+        <attr name="subTitleTextSize" format="dimension"/>
+        <attr name="titleColor" format="color"/>
+        <attr name="subTitleColor" format="color"/>
+        <attr name="titleHorizontalMargin" format="dimension"/>
+        <attr name="titleHorizontalPadding" format="dimension"/>
+        <attr name="imageViewWidth" format="dimension"/>
+        <attr name="imageViewHeight" format="dimension"/>
+        <attr name="textBtnHorizontalPadding" format="dimension"/>
+        <attr name="textBtnTextColorStateList" format="reference"/>
+        <attr name="textBtnTextSize" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="MultiView">
+
+        <attr name="mLeftIconSrc" format="reference"/>
+        <!--属性-->
+        <attr name="mLeftIconPadding" format="dimension"/>
+        <attr name="mLeftIconPaddingLeft" format="dimension"/>
+        <attr name="mLeftIconPaddingRight" format="dimension"/>
+        <attr name="mLeftIconPaddingTop" format="dimension"/>
+        <attr name="mLeftIconPaddingBottom" format="dimension"/>
+        <attr name="mLeftIconMargin" format="dimension"/>
+        <attr name="mLeftIconMarginLeft" format="dimension"/>
+        <attr name="mLeftIconMarginTop" format="dimension"/>
+        <attr name="mLeftIconMarginRight" format="dimension"/>
+        <attr name="mLeftIconMarginBottom" format="dimension"/>
+        <attr name="mLeftIconVisible">
+            <flag name="visible" value="1"/>
+            <flag name="gone" value="0"/>
+        </attr>
+
+        <attr name="mLeftText" format="string|reference"/>
+        <!--属性-->
+        <attr name="mLeftTextPadding" format="dimension"/>
+        <attr name="mLeftTextPaddingLeft" format="dimension"/>
+        <attr name="mLeftTextPaddingRight" format="dimension"/>
+        <attr name="mLeftTextPaddingTop" format="dimension"/>
+        <attr name="mLeftTextPaddingBottom" format="dimension"/>
+        <attr name="mLeftTextMargin" format="dimension"/>
+        <attr name="mLeftTextMarginLeft" format="dimension"/>
+        <attr name="mLeftTextMarginTop" format="dimension"/>
+        <attr name="mLeftTextMarginRight" format="dimension"/>
+        <attr name="mLeftTextMarginBottom" format="dimension"/>
+        <attr name="mLeftTextGravity">
+            <flag name="top" value="0x30"/>
+            <flag name="bottom" value="0x50"/>
+            <flag name="left" value="0x03"/>
+            <flag name="right" value="0x05"/>
+            <flag name="center_vertical" value="0x10"/>
+            <flag name="fill_vertical" value="0x70"/>
+            <flag name="center_horizontal" value="0x01"/>
+            <flag name="fill_horizontal" value="0x07"/>
+            <flag name="center" value="0x11"/>
+            <flag name="fill" value="0x77"/>
+            <flag name="clip_vertical" value="0x80"/>
+            <flag name="clip_horizontal" value="0x08"/>
+            <flag name="start" value="0x00800003"/>
+            <flag name="end" value="0x00800005"/>
+        </attr>
+        <attr name="mLeftTextSize" format="dimension"/>
+        <attr name="mLeftTextColor" format="color|reference"/>
+        <attr name="mLeftTextSingleLine" format="boolean"/>
+        <attr name="mLeftTextLines" format="integer"/>
+        <attr name="mLeftTextEllipsize">
+            <flag name="end" value="1"/>
+            <flag name="start" value="2"/>
+        </attr>
+
+        <attr name="mRightText" format="string|reference"/>
+        <!--属性-->
+        <attr name="mRightTextPadding" format="dimension"/>
+        <attr name="mRightTextPaddingLeft" format="dimension"/>
+        <attr name="mRightTextPaddingRight" format="dimension"/>
+        <attr name="mRightTextPaddingTop" format="dimension"/>
+        <attr name="mRightTextPaddingBottom" format="dimension"/>
+        <attr name="mRightTextMargin" format="dimension"/>
+        <attr name="mRightTextMarginLeft" format="dimension"/>
+        <attr name="mRightTextMarginTop" format="dimension"/>
+        <attr name="mRightTextMarginRight" format="dimension"/>
+        <attr name="mRightTextMarginBottom" format="dimension"/>
+        <attr name="mRightTextGravity">
+            <flag name="top" value="0x30"/>
+            <flag name="bottom" value="0x50"/>
+            <flag name="left" value="0x03"/>
+            <flag name="right" value="0x05"/>
+            <flag name="center_vertical" value="0x10"/>
+            <flag name="fill_vertical" value="0x70"/>
+            <flag name="center_horizontal" value="0x01"/>
+            <flag name="fill_horizontal" value="0x07"/>
+            <flag name="center" value="0x11"/>
+            <flag name="fill" value="0x77"/>
+            <flag name="clip_vertical" value="0x80"/>
+            <flag name="clip_horizontal" value="0x08"/>
+            <flag name="start" value="0x00800003"/>
+            <flag name="end" value="0x00800005"/>
+        </attr>
+        <attr name="mRightTextSize" format="dimension"/>
+        <attr name="mRightTextColor" format="color"/>
+        <attr name="mRightTextSingleLine" format="boolean"/>
+        <attr name="mRightTextLines" format="integer"/>
+        <attr name="mRightTextEllipsize">
+            <flag name="end" value="1"/>
+            <flag name="start" value="2"/>
+        </attr>
+
+        <attr name="mRightIconSrc" format="reference"/>
+        <!--属性-->
+        <attr name="mRightIconPadding" format="dimension"/>
+        <attr name="mRightIconPaddingLeft" format="dimension"/>
+        <attr name="mRightIconPaddingRight" format="dimension"/>
+        <attr name="mRightIconPaddingTop" format="dimension"/>
+        <attr name="mRightIconPaddingBottom" format="dimension"/>
+        <attr name="mRightIconMargin" format="dimension"/>
+        <attr name="mRightIconMarginLeft" format="dimension"/>
+        <attr name="mRightIconMarginTop" format="dimension"/>
+        <attr name="mRightIconMarginRight" format="dimension"/>
+        <attr name="mRightIconMarginBottom" format="dimension"/>
+        <attr name="mRightIconVisible">
+            <flag name="visible" value="1"/>
+            <flag name="gone" value="0"/>
+        </attr>
+
+        <attr name="mDividerLineType">
+            <enum name="none" value="1"/>
+            <enum name="top" value="2"/>
+            <enum name="bottom" value="3"/>
+            <enum name="both" value="4"/>
+        </attr>
+        <!--属性-->
+        <attr name="mDividerMarginLeftRight" format="dimension"/>
+        <attr name="mDividerHeight" format="dimension"/>
+        <attr name="mDividerColor" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="LoadingView">
+        <attr name="mLoadingViewSize" format="dimension"/>
+        <attr name="mLoadingViewColor" format="color"/>
+    </declare-styleable>
+</resources>
