@@ -31,6 +31,6 @@ dependencies {
     androidTestImplementation "com.android.support.test:runner:$versions.runnerVersion"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$versions.espressoVersion"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    api 'cn.cestco.rockq:BaseLib:1.0.1@arr'
-//    api project(':BaseLib')
+//    api 'cn.cestco.rockq:BaseLib:1.0.1@arr'
+    api project(':BaseLib')
 }

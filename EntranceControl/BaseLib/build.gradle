@@ -4,18 +4,18 @@ apply plugin: 'kotlin-android-extensions'
 
 
 //apply plugin: 'kotlin-kapt'
-//apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'com.novoda.bintray-release'
 //apply plugin: 'kotlin-kapt'
 //apply plugin: 'org.greenrobot.greendao'
 
-//publish {
-//    userOrg = 'qinglex'//bintray.com用户名
-//    groupId = 'com.rockq'//jcenter上的路径
-//    artifactId = 'baslib'//项目名称
-//    publishVersion = '1.0.0'//版本号
-//    desc = 'android 开发基础类库'//描述，不重要
-//    website = 'https://github.com/SugerQ'//网站，最好有，不重要
-//}
+publish {
+    userOrg = 'qinglex'//bintray.com用户名
+    groupId = 'cn.cestco.rockq'//jcenter上的路径
+    artifactId = 'rlibs'//项目名称
+    publishVersion = '0.0.2'//版本号
+    desc = 'android 开发基础类库'//描述，不重要
+    website = 'https://github.com/SugerQ'//网站，最好有，不重要
+}
 
 //添加 kotlin parcelable 注释快捷方法
 androidExtensions {
@@ -43,6 +43,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    lintOptions {
+        abortOnError false
     }
 
 }
@@ -115,104 +119,104 @@ dependencies {
 //    kapt  "com.github.bumptech.glide:compiler:$versions.glideVersion"
 }
 
-/** 以下开始是将Android Library上传到jcenter的相关配置**/
-
-apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
-
-//项目主页
-def siteUrl = 'https://github.com/SugerQ/CESTCO'    // project homepage
-//项目的版本控制地址
-def gitUrl = 'https://github.com/SugerQ/CESTCO.git' // project git
-
-//发布到组织名称名字，必须填写
-group = "cn.cestco.rockq"
-//发布到JCenter上的项目名字，必须填写
-def libName = "baselib"
-// 版本号，下次更新是只需要更改版本号即可
-version = "1.0.1"
-/**  上面配置后上传至jcenter后的编译路径是这样的： compile 'cn.bluemobi.dylan:sqlitelibrary:1.0'  **/
-
-//生成源文件
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-//生成文档
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-    options.encoding "UTF-8"
-    options.charSet 'UTF-8'
-    options.author true
-    options.version true
-    options.links "https://github.com/linglongxin24/FastDev/tree/master/mylibrary/docs/javadoc"
-    failOnError false
-}
-
-//文档打包成jar
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-//拷贝javadoc文件
-task copyDoc(type: Copy) {
-    from "${buildDir}/docs/"
-    into "docs"
-}
-
-//上传到jcenter所需要的源码文件
-artifacts {
-    archives javadocJar
-    archives sourcesJar
-}
-
-// 配置maven库，生成POM.xml文件
-install {
-    repositories.mavenInstaller {
-        // This generates POM.xml with proper parameters
-        pom {
-            project {
-                packaging 'aar'
-                name 'This is a lightweight SQLite database framework'
-                url siteUrl
-                licenses {
-                    license {
-                        name 'this is lib of company cestco '
-                        url 'https://github.com/SugerQ/CESTCO'
-                    }
-                }
-                developers {
-                    developer {
-                        id 'xieqlx'
-                        name 'xieqlx'
-                        email 'xieqlx@gmail.com'
-                    }
-                }
-                scm {
-                    connection gitUrl
-                    developerConnection gitUrl
-                    url siteUrl
-                }
-            }
-        }
-    }
-}
-
-//上传到jcenter
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-bintray {
-    user = properties.getProperty("bintray.user")    //读取 local.properties 文件里面的 bintray.user
-    key = properties.getProperty("bintray.apikey")   //读取 local.properties 文件里面的 bintray.apikey
-    configurations = ['archives']
-    pkg {
-        repo = "maven"
-        name = libName    //发布到JCenter上的项目名字，必须填写
-        desc = 'this is lib of company cestco '    //项目描述
-        websiteUrl = siteUrl
-        vcsUrl = gitUrl
-        licenses = ["Apache-2.0"]
-        publish = true
-    }
-}
+///** 以下开始是将Android Library上传到jcenter的相关配置**/
+//
+//apply plugin: 'com.github.dcendents.android-maven'
+//apply plugin: 'com.jfrog.bintray'
+//
+////项目主页
+//def siteUrl = 'https://github.com/SugerQ/CESTCO'    // project homepage
+////项目的版本控制地址
+//def gitUrl = 'https://github.com/SugerQ/CESTCO.git' // project git
+//
+////发布到组织名称名字，必须填写
+//group = "cn.cestco.rockq"
+////发布到JCenter上的项目名字，必须填写
+//def libName = "rlibs"
+//// 版本号，下次更新是只需要更改版本号即可
+//version = "0.0.1"
+///**  上面配置后上传至jcenter后的编译路径是这样的： compile 'cn.bluemobi.dylan:sqlitelibrary:1.0'  **/
+//
+////生成源文件
+//task sourcesJar(type: Jar) {
+//    from android.sourceSets.main.java.srcDirs
+//    classifier = 'sources'
+//}
+////生成文档
+//task javadoc(type: Javadoc) {
+//    source = android.sourceSets.main.java.srcDirs
+//    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+//    options.encoding "UTF-8"
+//    options.charSet 'UTF-8'
+//    options.author true
+//    options.version true
+//    options.links "https://github.com/linglongxin24/FastDev/tree/master/mylibrary/docs/javadoc"
+//    failOnError false
+//}
+//
+////文档打包成jar
+//task javadocJar(type: Jar, dependsOn: javadoc) {
+//    classifier = 'javadoc'
+//    from javadoc.destinationDir
+//}
+////拷贝javadoc文件
+//task copyDoc(type: Copy) {
+//    from "${buildDir}/docs/"
+//    into "docs"
+//}
+//
+////上传到jcenter所需要的源码文件
+//artifacts {
+//    archives javadocJar
+//    archives sourcesJar
+//}
+//
+//// 配置maven库，生成POM.xml文件
+//install {
+//    repositories.mavenInstaller {
+//        // This generates POM.xml with proper parameters
+//        pom {
+//            project {
+//                packaging 'aar'
+//                name 'This is a lightweight SQLite database framework'
+//                url siteUrl
+//                licenses {
+//                    license {
+//                        name 'this is lib of company cestco '
+//                        url 'https://github.com/SugerQ/CESTCO'
+//                    }
+//                }
+//                developers {
+//                    developer {
+//                        id 'xieqlx'
+//                        name 'xieqlx'
+//                        email 'xieqlx@gmail.com'
+//                    }
+//                }
+//                scm {
+//                    connection gitUrl
+//                    developerConnection gitUrl
+//                    url siteUrl
+//                }
+//            }
+//        }
+//    }
+//}
+//
+////上传到jcenter
+//Properties properties = new Properties()
+//properties.load(project.rootProject.file('local.properties').newDataInputStream())
+//bintray {
+//    user = properties.getProperty("bintray.user")    //读取 local.properties 文件里面的 bintray.user
+//    key = properties.getProperty("bintray.apikey")   //读取 local.properties 文件里面的 bintray.apikey
+//    configurations = ['archives']
+//    pkg {
+//        repo = "maven"
+//        name = libName    //发布到JCenter上的项目名字，必须填写
+//        desc = 'this is lib of company cestco '    //项目描述
+//        websiteUrl = siteUrl
+//        vcsUrl = gitUrl
+//        licenses = ["Apache-2.0"]
+//        publish = true
+//    }
+//}
