@@ -132,7 +132,7 @@ public class TipDialog extends Dialog {
             if (mCurrentIconType == ICON_TYPE_LOADING) {
                 LoadingView loadingView = new LoadingView(mContext);
                 loadingView.setColor(Color.WHITE);
-                loadingView.setSize(DisplayHelper.dp2px(mContext, 32));
+                loadingView.setSize(DisplayHelper.INSTANCE.dp2px(mContext, 32));
                 LinearLayout.LayoutParams loadingViewLP = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                 loadingView.setLayoutParams(loadingViewLP);
                 contentWrap.addView(loadingView);
@@ -159,7 +159,7 @@ public class TipDialog extends Dialog {
                 LinearLayout.LayoutParams tipViewLP = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
                 if (mCurrentIconType != ICON_TYPE_NOTHING) {
-                    tipViewLP.topMargin = DisplayHelper.dp2px(mContext, 12);
+                    tipViewLP.topMargin = DisplayHelper.INSTANCE.dp2px(mContext, 12);
                 }
                 tipView.setLayoutParams(tipViewLP);
 

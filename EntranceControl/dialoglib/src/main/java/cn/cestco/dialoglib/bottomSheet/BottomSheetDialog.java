@@ -143,8 +143,8 @@ public class BottomSheetDialog extends Dialog {
         params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
         params.gravity = Gravity.BOTTOM | Gravity.CENTER;
 
-        int screenWidth = DisplayHelper.getScreenWidth(getContext());
-        int screenHeight = DisplayHelper.getScreenHeight(getContext());
+        int screenWidth = DisplayHelper.INSTANCE.getScreenWidth(getContext());
+        int screenHeight = DisplayHelper.INSTANCE.getScreenHeight(getContext());
         params.width = screenWidth < screenHeight ? screenWidth : screenHeight;
         getWindow().setAttributes(params);
         setCanceledOnTouchOutside(true);
@@ -384,7 +384,7 @@ public class BottomSheetDialog extends Dialog {
         }
 
         private boolean needToScroll() {
-            int itemHeight = DisplayHelper.dp2px(mContext, 56);
+            int itemHeight = DisplayHelper.INSTANCE.dp2px(mContext, 56);
             int totalHeight = mItems.size() * itemHeight;
             if (mHeaderViews.size() > 0) {
                 for (View view : mHeaderViews) {
@@ -395,7 +395,7 @@ public class BottomSheetDialog extends Dialog {
                 }
             }
             if (mTitleTv != null && !StringUtils.INSTANCE.isNullOrEmpty(mTitle)) {
-                totalHeight += DisplayHelper.dp2px(mContext, 56);
+                totalHeight += DisplayHelper.INSTANCE.dp2px(mContext, 56);
             }
             return totalHeight > getListMaxHeight();
         }
@@ -404,7 +404,7 @@ public class BottomSheetDialog extends Dialog {
          * 注意:这里只考虑List的高度,如果有title或者headerView,不计入考虑中
          */
         protected int getListMaxHeight() {
-            return (int) (DisplayHelper.getScreenHeight(mContext) * 0.5);
+            return (int) (DisplayHelper.INSTANCE.getScreenHeight(mContext) * 0.5);
         }
 
         public void notifyDataSetChanged() {
@@ -705,8 +705,8 @@ public class BottomSheetDialog extends Dialog {
             mBottomButton = (TextView) baseLinearLayout.findViewById(R.id.bottom_sheet_close_button);
 
             int maxItemCountEachLine = Math.max(mFirstLineViews.size(), mSecondLineViews.size());
-            int screenWidth = DisplayHelper.getScreenWidth(mContext);
-            int screenHeight = DisplayHelper.getScreenHeight(mContext);
+            int screenWidth = DisplayHelper.INSTANCE.getScreenWidth(mContext);
+            int screenHeight = DisplayHelper.INSTANCE.getScreenHeight(mContext);
             int width = screenWidth < screenHeight ? screenWidth : screenHeight;
             int itemWidth = calculateItemWidth(width, maxItemCountEachLine, firstLine.getPaddingLeft(), firstLine.getPaddingRight());
 
@@ -774,7 +774,7 @@ public class BottomSheetDialog extends Dialog {
          */
         private int calculateItemWidth(int width, int maxItemCountInEachLine, int paddingLeft, int paddingRight) {
             if (mMiniItemWidth == -1) {
-                mMiniItemWidth = DisplayHelper.dp2px(mContext, 84);
+                mMiniItemWidth = DisplayHelper.INSTANCE.dp2px(mContext, 84);
             }
 
             final int parentSpacing = width - paddingLeft - paddingRight;
